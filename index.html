@@ -249,12 +249,21 @@
   @media (prefers-reduced-motion:reduce){.frame img{transition:none}}
 
 
+
+  nav .brandmark{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+  nav .brandmark img{width:auto;height:33px;border-radius:0}
+  .brand-sub{font-size:.9rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+    color:#c3cad8;position:relative;top:1px}
+  .foot-grid .brandmark img{width:auto;height:20px;border-radius:0}
+  .foot-grid .brand-sub{font-size:.78rem}
 </style>
 </head>
 <body>
 <nav><div class="wrap">
-  <img src="img/icon.png" alt="">
-  <span class="brand">Crivid <span>Player</span></span><span class="spacer"></span>
+  <a class="brandmark" href="/" aria-label="Crivid Player home">
+    <img src="img/wordmark.png" alt="Crivid" width="229" height="68">
+    <span class="brand-sub">Player</span>
+  </a><span class="spacer"></span>
   <a class="nav-link" href="#features">Features</a><a class="nav-link" href="https://discord.gg/jTUG8FNECK" target="_blank" rel="noopener">Discord</a>
 </div></nav>
 
@@ -320,8 +329,7 @@
 
 <footer><div class="wrap">
   <div class="foot-grid">
-    <img src="img/icon.png" alt="" width="24" height="24" style="border-radius:6px">
-    <span>Crivid Player</span><span class="spacer"></span>
+    <a class="brandmark" href="/" aria-label="Crivid Player home"><img src="img/wordmark.png" alt="Crivid" width="229" height="68"><span class="brand-sub">Player</span></a><span class="spacer"></span>
     <a href="https://crivid.com/privacy">Privacy</a><a href="https://discord.gg/jTUG8FNECK" target="_blank" rel="noopener">Discord</a>
     <a href="mailto:hellothere@crivid.com">Support</a>
   </div>
