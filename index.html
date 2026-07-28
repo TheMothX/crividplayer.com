@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Crivid Player">
 <meta property="og:title" content="Crivid Player — your channels and your own library, in one app">
 <meta property="og:description" content="Your IPTV subscription and your Jellyfin, Emby or Plex library, side by side. On phone, tablet and Android TV.">
-<meta property="og:image" content="https://crividplayer.com/img/tv_series_episodes.jpg">
+<meta property="og:image" content="https://crividplayer.com/img/tv_guide.jpg">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="720">
 <meta name="twitter:card" content="summary_large_image">
@@ -302,11 +302,11 @@
     </div>
 
     <div class="slider">
-      <div class="frame"><img src="img/tv_series_episodes.jpg" alt="Series with artwork and episode lists" class="on"><img src="img/tv_movies.jpg" alt="A film library that actually looks like one"><img src="img/tv_sources_all.jpg" alt="Bring your own: playlists, media servers, tuners, local files"><img src="img/tv_fullscreen_clean.jpg" alt="Then nothing but the picture"></div>
+      <div class="frame"><img src="img/tv_guide.jpg" alt="The full guide — what's on now, next, and yesterday" class="on"><img src="img/tv_movies.jpg" alt="A film library that actually looks like one"><img src="img/tv_sources_all.jpg" alt="Bring your own: playlists, media servers, tuners, local files"><img src="img/tv_multiview.jpg" alt="Multi-View — up to four channels at once"><img src="img/tv_fullscreen_clean.jpg" alt="Then nothing but the picture"></div>
       <button class="arrow prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>
       <button class="arrow next" type="button" aria-label="Next screenshot"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
-      <p class="slide-cap">Series with artwork and episode lists</p>
-      <div class="dots"><button type="button" aria-label="Screenshot 1" aria-current="true"></button><button type="button" aria-label="Screenshot 2"></button><button type="button" aria-label="Screenshot 3"></button><button type="button" aria-label="Screenshot 4"></button></div>
+      <p class="slide-cap">The full guide — what's on now, next, and yesterday</p>
+      <div class="dots"><button type="button" aria-label="Screenshot 1" aria-current="true"></button><button type="button" aria-label="Screenshot 2"></button><button type="button" aria-label="Screenshot 3"></button><button type="button" aria-label="Screenshot 4"></button><button type="button" aria-label="Screenshot 5"></button></div>
       <p class="shot-note">Screenshots are illustrative. Channels and titles shown are examples and are not provided by Crivid.</p>
     </div>
   </div>
@@ -351,7 +351,7 @@
 (function(){
   var frame=document.querySelector('.frame'); if(!frame) return;
   var imgs=frame.querySelectorAll('img'), dots=document.querySelectorAll('.dots button');
-  var cap=document.querySelector('.slide-cap'), caps=["Series with artwork and episode lists", "A film library that actually looks like one", "Bring your own: playlists, media servers, tuners, local files", "Then nothing but the picture"];
+  var cap=document.querySelector('.slide-cap'), caps=["The full guide — what's on now, next, and yesterday", "A film library that actually looks like one", "Bring your own: playlists, media servers, tuners, local files", "Multi-View — up to four channels at once", "Then nothing but the picture"];
   var i=0,timer=null,still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function go(n){ i=(n+imgs.length)%imgs.length;
     imgs.forEach(function(el,k){el.classList.toggle('on',k===i);});
