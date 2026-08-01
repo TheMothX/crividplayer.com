@@ -14,9 +14,9 @@
 <meta property="og:site_name" content="Crivid Player">
 <meta property="og:title" content="Crivid Player — your channels and your own library, in one app">
 <meta property="og:description" content="Your IPTV subscription and your Jellyfin, Emby or Plex library, side by side. On Android, Android TV, iPhone and iPad.">
-<meta property="og:image" content="https://crividplayer.com/img/tv_guide.jpg">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="720">
+<meta property="og:image" content="https://crividplayer.com/img/panel_guide.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
 <style>
 
@@ -224,10 +224,17 @@
   .frame{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;
     background:var(--ink-2);border:1px solid rgba(255,255,255,.12);
     box-shadow:0 50px 110px -40px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.4)}
-  .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
-  .frame img.on{opacity:1}
-  .slide-cap{margin:1.1rem 0 0;text-align:center;font-size:.9rem;color:var(--muted);min-height:1.4em}
-  .dots{display:flex;justify-content:center;gap:.45rem;margin-top:.7rem}
+  /* Panelene bærer hver sin store overskrift. En ekte kryssfade viser da TO
+     overskrifter oppå hverandre midt i overgangen — leselig grøt. Derfor går
+     skiftet gjennom bakgrunnen: det utgående tones ut først, det inngående
+     starter etter at det er borte. Ingen overlapp, og dyppet leses som villet. */
+  .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .28s ease}
+  .frame img.on{opacity:1;transition:opacity .42s ease .26s}
+  @media (prefers-reduced-motion: reduce){
+    .frame img,.frame img.on{transition:none}
+  }
+  .controls{display:flex;justify-content:center;align-items:center;gap:1.1rem;margin-top:1.15rem}
+  .dots{display:flex;justify-content:center;gap:.45rem}
   .dots button{width:7px;height:7px;padding:0;border-radius:99px;cursor:pointer;border:0;background:rgba(255,255,255,.22);transition:background .25s,width .25s}
   .dots button[aria-current="true"]{background:var(--accent);width:22px}
   .dots button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -236,6 +243,13 @@
   .arrow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   .arrow svg{width:17px;height:17px;stroke:var(--paper);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   .arrow.prev{left:1rem}.arrow.next{right:1rem}
+  /* Piler oppå bildet forutsetter rolig bakgrunn i kantene. Panelene har
+     brødtekst helt ut i venstre kant, og på smal skjerm dekket pilene den.
+     Under 640 px faller de derfor ut av bildet og inn i kontrollraden. */
+  @media (max-width:640px){
+    .arrow{position:static;top:auto;transform:none;width:36px;height:36px}
+    .arrow.prev,.arrow.next{left:auto;right:auto}
+  }
   .shot-note{margin:.55rem 0 0;text-align:center;font-size:.76rem;color:#6d768a}
   .grid8{display:grid;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr));gap:2rem 2.6rem}
   .cell{display:grid;grid-template-columns:auto 1fr;gap:.95rem;align-items:start}
@@ -281,10 +295,10 @@
   "installUrl": "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
   "image": "https://crividplayer.com/img/icon.png",
   "screenshot": [
-    "https://crividplayer.com/img/tv_guide.jpg",
-    "https://crividplayer.com/img/tv_movies.jpg",
-    "https://crividplayer.com/img/tv_sources_all.jpg",
-    "https://crividplayer.com/img/tv_multiview.jpg"
+    "https://crividplayer.com/img/panel_guide.jpg",
+    "https://crividplayer.com/img/panel_multiview.jpg",
+    "https://crividplayer.com/img/panel_sources.jpg",
+    "https://crividplayer.com/img/panel_library.jpg"
   ],
   "description": "A media player for the IPTV service you already subscribe to, with your Jellyfin, Emby or Plex library alongside it. Full TV guide, Multi-View, catch-up, HDHomeRun tuners and local files. Ships no channels or content of its own — you add your own source.",
   "featureList": [
@@ -354,11 +368,12 @@
     </div>
 
     <div class="slider">
-      <div class="frame"><img src="img/tv_guide.jpg" alt="The full guide — what's on now, next, and yesterday" class="on"><img src="img/tv_movies.jpg" alt="A film library that actually looks like one"><img src="img/tv_sources_all.jpg" alt="Bring your own: playlists, media servers, tuners, local files"><img src="img/tv_multiview.jpg" alt="Multi-View — up to four channels at once"><img src="img/tv_fullscreen_clean.jpg" alt="Then nothing but the picture"></div>
-      <button class="arrow prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>
-      <button class="arrow next" type="button" aria-label="Next screenshot"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
-      <p class="slide-cap">The full guide — what's on now, next, and yesterday</p>
-      <div class="dots"><button type="button" aria-label="Screenshot 1" aria-current="true"></button><button type="button" aria-label="Screenshot 2"></button><button type="button" aria-label="Screenshot 3"></button><button type="button" aria-label="Screenshot 4"></button><button type="button" aria-label="Screenshot 5"></button></div>
+      <div class="frame"><img src="img/panel_guide.jpg" alt="A guide built to be read — now and next across every channel, with the preview still playing" class="on" width="1600" height="900"><img src="img/panel_multiview.jpg" alt="Four streams, one screen — Multi-View running four live channels at once" width="1600" height="900" loading="lazy"><img src="img/panel_sources.jpg" alt="Jellyfin, Emby and Plex — the Sources screen, with local files and network tuners" width="1600" height="900" loading="lazy"><img src="img/panel_library.jpg" alt="Your library on the big screen — posters, ratings, seasons and episodes in one grid" width="1600" height="900" loading="lazy"><img src="img/panel_fullscreen.jpg" alt="Full screen, nothing else — the controls fade away and the picture fills the screen" width="1600" height="900" loading="lazy"><img src="img/panel_remote.jpg" alt="Every control one press away — now and next, a live pill, the clock and picture-fit" width="1600" height="900" loading="lazy"></div>
+      <div class="controls">
+        <button class="arrow prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>
+        <div class="dots"><button type="button" aria-label="Screenshot 1" aria-current="true"></button><button type="button" aria-label="Screenshot 2"></button><button type="button" aria-label="Screenshot 3"></button><button type="button" aria-label="Screenshot 4"></button><button type="button" aria-label="Screenshot 5"></button><button type="button" aria-label="Screenshot 6"></button></div>
+        <button class="arrow next" type="button" aria-label="Next screenshot"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
+      </div>
       <p class="shot-note">Screenshots are illustrative. Channels and titles shown are examples and are not provided by Crivid.</p>
     </div>
   </div>
@@ -418,12 +433,10 @@
 (function(){
   var frame=document.querySelector('.frame'); if(!frame) return;
   var imgs=frame.querySelectorAll('img'), dots=document.querySelectorAll('.dots button');
-  var cap=document.querySelector('.slide-cap'), caps=["The full guide — what's on now, next, and yesterday", "A film library that actually looks like one", "Bring your own: playlists, media servers, tuners, local files", "Multi-View — up to four channels at once", "Then nothing but the picture"];
   var i=0,timer=null,still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function go(n){ i=(n+imgs.length)%imgs.length;
     imgs.forEach(function(el,k){el.classList.toggle('on',k===i);});
-    dots.forEach(function(el,k){ if(k===i) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current'); });
-    cap.textContent=caps[i]; }
+    dots.forEach(function(el,k){ if(k===i) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current'); }); }
   function start(){ if(still) return; stop(); timer=setInterval(function(){go(i+1);},4500); }
   function stop(){ if(timer) clearInterval(timer); timer=null; }
   document.querySelector('.arrow.next').addEventListener('click',function(){go(i+1);start();});
