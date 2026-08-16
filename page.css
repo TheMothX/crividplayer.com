@@ -24,6 +24,9 @@
   --ink:#0A1424; --ink-2:#25384F; --muted:#52678A;
   --cyan:#0787A8; --mint:#0E8F63;
   --glow:rgba(7,135,168,.13); --on-accent:#FFFFFF;
+  /* Den gamle sidas aksent #2ce8c0. Den er kun lesbar paa moerk bunn,
+     saa lys modus faar SAMME hue (168 grader) nedtonet til det leser. */
+  --live:#0C8A72; --live-line:rgba(12,138,114,.42); --live-fill:rgba(12,138,114,.10);
   --shadow:0 18px 44px rgba(10,20,36,.10),0 2px 6px rgba(10,20,36,.06);
 }
 @media (prefers-color-scheme:dark){
@@ -33,6 +36,8 @@
     --ink:#E8F0FF; --ink-2:#C3D4EE; --muted:#93ACD6;
     --cyan:#22DDF5; --mint:#3BE8A8;
     --glow:rgba(34,221,245,.16); --on-accent:#04121C;
+  --live:#2CE8C0; --live-line:rgba(44,232,192,.42); --live-fill:rgba(44,232,192,.10);
+   --live:#2CE8C0; --live-line:rgba(44,232,192,.42); --live-fill:rgba(44,232,192,.10);
     --shadow:0 26px 70px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.35);
   }
 }
@@ -113,7 +118,7 @@ p{color:var(--ink-2);max-width:62ch}
   font-size:.78rem;padding:6px 12px;border-radius:99px;border:1px solid var(--line);
   color:var(--ink-2);font-variation-settings:'opsz' 14,'wght' 560;
 }
-.chip.live{border-color:color-mix(in srgb,var(--mint) 46%,var(--line));color:var(--mint)}
+.chip.live{border-color:var(--live-line);color:var(--live)}
 .chip.soon{color:var(--muted);border-style:dashed}
 
 /* ── Butikkpanelene bærer argumentet ──────────────────────────────────── */
@@ -220,11 +225,12 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:36px;back
   border:1px solid var(--line);background:var(--surface);color:var(--ink);
   text-decoration:none;transition:border-color .18s,background .18s,transform .18s;
 }
-.store:hover{background:var(--surface-2);border-color:color-mix(in srgb,var(--cyan) 40%,var(--line));transform:translateY(-1px)}
+.store{background:linear-gradient(180deg,var(--live-fill),color-mix(in srgb,var(--live-fill) 45%,transparent));border-color:var(--live-line)}
+.store:hover{border-color:var(--live);transform:translateY(-1px)}
 .store:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 .store svg{width:22px;height:22px;flex:none;opacity:.92;stroke:var(--ink)}
 .store b{display:block;font-size:.95rem;font-variation-settings:'opsz' 14,'wght' 620;letter-spacing:-.01em}
-.store small{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+.store small{display:block;font-size:.72rem;color:var(--live);letter-spacing:.06em}
 
 /* ── Karusellen ───────────────────────────────────────────────────────────
    Uendret oppførsel fra den gamle sida, og av god grunn: hvert panel bærer
