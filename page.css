@@ -6,11 +6,7 @@
    til latin + æøå. 856 KB -> 48 KB. Lokal fil, ikke CDN: en font som lastes fra
    et fremmed domene feiler stille og bytter typografi uten å si fra.
 
-   Tema: tre tilstander, ikke to. Bar :root = lys. prefers-color-scheme:dark
-   gjelder når brukeren ikke har valgt (guardet mot [data-theme="light"]).
-   [data-theme="dark"] vinner når valget er eksplisitt. HVER farge finnes i alle
-   tre — en farge som bare er definert i en media query gir lys tekst på lys bunn
-   i den umerkede tilstanden. */
+   Tema: SIDA ER MØRK, ALLTID. Se token-blokka under. */
 
 @font-face{
   font-family:'InterVar';
@@ -18,35 +14,22 @@
   font-weight:100 900; font-style:normal; font-display:swap;
 }
 
+/* ⚠️ MØRK, ALLTID — sida følger IKKE systemtemaet.
+   Første utgave hadde lys + mørk palett etter prefers-color-scheme. Christian
+   kjører lyst systemtema og fikk en HVIT side: feil merkevare (appen er mørk,
+   alle butikkpanelene er mørke), og ordmerket er en PNG tegnet for mørk bunn —
+   på lys bakgrunn fikk det en synlig lys glorie rundt seg.
+   Enkelt-tema er et VALG her, ikke en forglemmelse: hver farge settes eksplisitt,
+   så sida holder seg uansett hva verten rundt gjør.
+   (De to gamle mørk-blokkene hadde dessuten drevet fra hverandre — --live sto
+   duplisert i den ene og manglet i den andre. Ett sett kan ikke drive.) */
 :root{
-  --ground:#EEF3FA; --ground-2:#E4EBF6; --surface:#FFFFFF; --surface-2:#F5F8FD;
-  --line:#CBD9EC; --line-soft:#DFE8F5;
-  --ink:#0A1424; --ink-2:#25384F; --muted:#52678A;
-  --cyan:#0787A8; --mint:#0E8F63;
-  --glow:rgba(7,135,168,.13); --on-accent:#FFFFFF;
-  /* Den gamle sidas aksent #2ce8c0. Den er kun lesbar paa moerk bunn,
-     saa lys modus faar SAMME hue (168 grader) nedtonet til det leser. */
-  --live:#0C8A72; --live-line:rgba(12,138,114,.42); --live-fill:rgba(12,138,114,.10);
-  --shadow:0 18px 44px rgba(10,20,36,.10),0 2px 6px rgba(10,20,36,.06);
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --ground:#060B16; --ground-2:#0B1526; --surface:#111F38; --surface-2:#0E1A30;
-    --line:#1E3155; --line-soft:#182742;
-    --ink:#E8F0FF; --ink-2:#C3D4EE; --muted:#93ACD6;
-    --cyan:#22DDF5; --mint:#3BE8A8;
-    --glow:rgba(34,221,245,.16); --on-accent:#04121C;
-  --live:#2CE8C0; --live-line:rgba(44,232,192,.42); --live-fill:rgba(44,232,192,.10);
-   --live:#2CE8C0; --live-line:rgba(44,232,192,.42); --live-fill:rgba(44,232,192,.10);
-    --shadow:0 26px 70px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.35);
-  }
-}
-:root[data-theme="dark"]{
   --ground:#060B16; --ground-2:#0B1526; --surface:#111F38; --surface-2:#0E1A30;
   --line:#1E3155; --line-soft:#182742;
   --ink:#E8F0FF; --ink-2:#C3D4EE; --muted:#93ACD6;
   --cyan:#22DDF5; --mint:#3BE8A8;
   --glow:rgba(34,221,245,.16); --on-accent:#04121C;
+  --live:#2CE8C0; --live-line:rgba(44,232,192,.42); --live-fill:rgba(44,232,192,.10);
   --shadow:0 26px 70px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.35);
 }
 
@@ -61,12 +44,22 @@ body{
 .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
 a{color:inherit}
 
-/* Ryggraden («nå-linja» fra guiden) er FJERNET. Ideen var at guidens
-   nå-linje skulle løpe gjennom sida. På bred skjerm sto den løsrevet i
-   tomrommet til venstre for innholdet og leste som en feil, ikke som
-   design — Christian reagerte på den som noe som hadde skjedd ved et
-   uhell. Et grep som må forklares for å forsvares, forsvarer seg ikke. */
+/* Ryggraden: guidens nå-linje.
+   FØRSTE FORSØK MISLYKTES, og grunnen er verdt å skrive ned: linja lå 22 px til
+   venstre for teksten, mens seksjonsmerkene startet ved tekstkanten. Det var et
+   gap mellom linja og alt annet, så den leste som en renderingsfeil i tomrommet
+   — Christian spurte rett ut hva den var.
+   I en ekte programguide virker nå-linja fordi den KRYSSER innholdet. Nå gjør
+   den det: hvert seksjonsmerke har en kobling som går fra linja og inn til
+   etiketten, slik tidsmarkører henger på en tidsakse. */
 .page{position:relative}
+.page::before{
+  content:"";position:absolute;left:max(20px,calc(50% - 560px + 6px));
+  top:120px;bottom:180px;width:2px;
+  background:linear-gradient(180deg,transparent,var(--cyan) 4%,var(--mint) 66%,transparent);
+  opacity:.55;pointer-events:none;
+}
+@media (max-width:820px){.page::before{left:10px}}
 
 /* ── Topplinje ────────────────────────────────────────────────────────── */
 .top{position:relative;z-index:2;border-bottom:1px solid var(--line-soft);background:var(--ground)}
@@ -79,10 +72,17 @@ a{color:inherit}
 
 section{position:relative;padding:82px 0}
 .eyebrow{
-  font-variation-settings:'opsz' 14,'wght' 640;font-size:.72rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px;margin-bottom:22px;
+  position:relative;font-variation-settings:'opsz' 14,'wght' 640;font-size:.72rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;
 }
-.eyebrow::before{content:"";width:26px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--mint));border-radius:2px}
+/* Koblingen fra ryggraden inn til etiketten. -22px treffer linja eksakt:
+   .wrap har 28px padding, linja staar 22px lenger ut. */
+.eyebrow::before{
+  content:"";position:absolute;left:-22px;top:50%;width:15px;height:2px;
+  transform:translateY(-1px);border-radius:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--mint));
+}
+@media (max-width:820px){.eyebrow::before{display:none}}
 
 h1,h2,h3{font-variation-settings:'opsz' 32,'wght' 780;letter-spacing:-.025em;line-height:1.04;text-wrap:balance}
 h1{font-size:clamp(2.7rem,6.4vw,4.9rem)}
