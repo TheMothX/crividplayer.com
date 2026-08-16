@@ -1,0 +1,105 @@
+/* doc.css — stilene for pricing / terms / refunds.
+   Dette ER den gamle page.css, uendret.
+
+   🔴 Hvorfor den ble skilt ut 2026-08-17: forsida ble bygget om og page.css
+   skrevet helt om. De tre dokumentsidene delte den fila, saa klassene deres
+   forsvant og de sto HVITE og ustylet i produksjon.
+   Aa kopiere reglene tilbake var ikke nok: tokenavnene kolliderer med motsatt
+   betydning. Gammel --ink er BAKGRUNN (#05070f), ny --ink er TEKST (#E8F0FF).
+   Samme navn, omvendt rolle - sidene ville faatt lys tekst paa lys bunn.
+
+   Derfor egen fil. De to systemene skal ikke dele navnerom.
+   Skal disse sidene noen gang over paa det nye systemet, er det en egen jobb. */
+/* Delt stil for undersidene (pricing, terms, refunds).
+   Forsiden har sin egen inline-CSS og røres ikke — variablene og nav/footer
+   er speilet her med vilje, så en endring på forsiden ikke kan brekke
+   juridiske sider som Paddle vurderer. */
+
+:root{
+  --ink:#05070f;
+  --ink-2:#0b1020;
+  --paper:#f4f5f7;
+  --muted:#8a93a8;
+  --line:rgba(255,255,255,.10);
+  --accent:#2ce8c0;
+  --accent-2:#3fd0ff;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font:400 17px/1.7 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  letter-spacing:-.005em;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1160px,92vw);margin-inline:auto}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:color-mix(in srgb, var(--ink) 82%, transparent);
+  border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:.7rem;height:64px}
+nav .spacer{flex:1}
+.nav-link{color:var(--muted);text-decoration:none;font-size:.92rem;transition:color .18s}
+.nav-link:hover{color:var(--paper)}
+.nav-link[aria-current="page"]{color:var(--paper)}
+.brandmark{display:flex;align-items:flex-end;gap:9px;text-decoration:none;line-height:1}
+.brandmark img{width:auto;height:30px;display:block}
+.brand-sub{font-size:17px;font-weight:500;letter-spacing:.3px;color:#EAFBFF;position:relative;bottom:1px}
+.caret{width:9px;height:22px;background:#41E7FF;flex:none;margin-left:-2px;
+  box-shadow:0 0 7px rgba(56,225,255,.6);animation:caret 1.05s steps(1,end) infinite}
+@keyframes caret{0%,49.99%{opacity:1}50%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.caret{animation:none;opacity:1}*{transition:none!important}}
+
+/* dokumentsider */
+main{padding:clamp(2.75rem,7vw,5rem) 0 clamp(3rem,7vw,5rem)}
+.doc{max-width:46rem}
+.doc h1{font-size:clamp(2rem,4.6vw,3rem);line-height:1.08;letter-spacing:-.035em;
+  font-weight:640;margin:0 0 .6rem}
+.doc .meta{color:var(--muted);font-size:.88rem;margin:0 0 2.5rem}
+.doc h2{font-size:clamp(1.15rem,2.2vw,1.4rem);letter-spacing:-.022em;font-weight:600;
+  margin:2.6rem 0 .7rem}
+.doc h2:first-of-type{margin-top:0}
+.doc p,.doc li{color:#c3cad8}
+.doc p{margin:0 0 1rem}
+.doc ul{margin:0 0 1rem;padding-left:1.2rem}
+.doc li{padding:.15rem 0}
+.doc strong{color:var(--paper);font-weight:560}
+.doc a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(44,232,192,.3)}
+.doc a:hover{border-bottom-color:var(--accent)}
+.doc dl{margin:0 0 1rem}
+.doc dt{color:var(--paper);font-weight:560;margin-top:.8rem}
+.doc dd{margin:.15rem 0 0;color:#c3cad8}
+.callout{border:1px solid var(--line);border-left:2px solid var(--accent);
+  background:rgba(255,255,255,.03);border-radius:0 12px 12px 0;
+  padding:1.1rem 1.3rem;margin:1.6rem 0}
+.callout p:last-child{margin-bottom:0}
+
+/* pris */
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);
+  align-items:start;margin:0 0 2.5rem;max-width:62rem}
+.tier{padding:1.9rem;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03)}
+.tier.pro{border-color:rgba(44,232,192,.32);
+  background:linear-gradient(160deg, rgba(44,232,192,.09), rgba(63,208,255,.035))}
+.tier h2{margin:0 0 .3rem!important;font-size:1.15rem;font-weight:600;letter-spacing:-.02em}
+.tier .amount{font-size:2.15rem;font-weight:640;letter-spacing:-.035em;margin:.4rem 0 .2rem}
+.tier .amount small{font-size:.85rem;font-weight:400;color:var(--muted);letter-spacing:0}
+.tier ul{list-style:none;padding:0;margin:1.2rem 0 0}
+.tier li{display:flex;gap:.6rem;align-items:flex-start;padding:.4rem 0;font-size:.95rem;color:#b7bfcd}
+.tier li svg{width:17px;height:17px;flex:none;margin-top:.32rem;stroke:var(--accent);fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:.9rem}
+.foot-grid{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center}
+footer a{color:var(--muted);text-decoration:none;transition:color .18s}
+footer a:hover{color:var(--paper)}
+.foot-grid .spacer{flex:1}
+.foot-grid .brandmark img{height:22px}
+.foot-grid .brand-sub{font-size:13px}
+.foot-grid .caret{height:16px;width:7px}
+.disclaimer{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--line);
+  max-width:60rem;line-height:1.6;font-size:.85rem}
+
+@media (max-width:900px){.price-grid{grid-template-columns:1fr}}
