@@ -20,6 +20,57 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="page.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Crivid IPTV Player",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Android 7.0+, Android TV, iOS 15.0+, iPadOS 15.0+, macOS 12.0+",
+  "url": "https://crividplayer.com/",
+  "downloadUrl": [
+    "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
+    "https://apps.apple.com/app/id6783083716"
+  ],
+  "installUrl": "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
+  "image": "https://crividplayer.com/img/icon.png",
+  "screenshot": [
+    "https://crividplayer.com/img/panel_guide.jpg",
+    "https://crividplayer.com/img/panel_multiview.jpg",
+    "https://crividplayer.com/img/panel_sources.jpg",
+    "https://crividplayer.com/img/panel_library.jpg"
+  ],
+  "description": "A media player for the IPTV service you already subscribe to, with your Jellyfin, Emby or Plex library alongside it. Full TV guide, Multi-View, catch-up, HDHomeRun tuners and local files. Ships no channels or content of its own — you add your own source.",
+  "featureList": [
+    "TV guide (EPG) from your own XMLTV source",
+    "Jellyfin, Emby and Plex libraries",
+    "Multi-View — up to four streams at once",
+    "Catch-up and replay",
+    "Multiple playlists combined into one guide",
+    "HDHomeRun network tuners",
+    "Local and USB video files",
+    "Parental controls with PIN-locked groups",
+    "Picture-in-picture",
+    "Six colour themes across the whole app"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free to install. Pro is an optional one-time purchase, not a subscription."
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Crivid AS",
+    "url": "https://crivid.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Crivid AS",
+    "url": "https://crivid.com/"
+  }
+}
+</script>
 </head>
 <body>
 <div class="page">
@@ -28,7 +79,6 @@
   <a href="/" aria-label="Crivid Player"><img src="img/wordmark.png" alt="Crivid Player"></a>
   <nav class="nav">
     <a class="nav-link" href="#why">Why switch</a>
-    <a class="nav-link" href="#see">See it</a>
     <a class="nav-link" href="/pricing">Pricing</a>
     <a class="nav-link" href="https://discord.gg/jTUG8FNECK">Discord</a>
   </nav>
@@ -41,8 +91,12 @@
   <p class="lede">The IPTV subscription you already have, plus your Jellyfin, Emby or Plex library — in one player, on your phone, your tablet and your TV.</p>
 
   <div class="cta">
-    <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.crivid.iptvplayer">Get it on Google Play</a>
-    <a class="btn btn-ghost" href="https://apps.apple.com/app/id6783083716">Download on the App Store</a>
+    <a class="store" href="https://play.google.com/store/apps/details?id=com.crivid.iptvplayer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2.5v19a1 1 0 0 0 1.5.87l15-9.5a1 1 0 0 0 0-1.74l-15-9.5A1 1 0 0 0 3 2.5z"/></svg>
+      <span><b>Google Play</b><small>DOWNLOAD NOW</small></span></a>
+    <a class="store" href="https://apps.apple.com/app/id6783083716">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c.4-2 1.9-3.6 3.9-4-.1 2-1.6 3.7-3.9 4z"/><path d="M18.6 16.6c-.6 1.4-1.4 2.7-2.5 3.9-.8.8-1.5 1.2-2.3 1.2-.7 0-1.2-.2-2.1-.6-.9-.4-1.4-.6-2-.6s-1.2.2-2 .6c-.8.4-1.4.6-2 .6-.8 0-1.6-.5-2.4-1.4C1.6 18.2.7 15.4.9 12.8c.2-2.4 1.6-4.1 3.7-4.1.9 0 1.6.3 2.4.6.6.3 1 .4 1.3.4.3 0 .7-.1 1.4-.5.9-.4 1.6-.6 2.3-.5 1.7.1 3 .8 3.8 2.1-1.5 1-2.3 2.3-2.2 4 .1 1.4.7 2.5 1.8 3.3z"/></svg>
+      <span><b>App Store</b><small>DOWNLOAD NOW</small></span></a>
   </div>
   <p class="fineprint">One purchase. No subscription. No account. Seven days of Pro included — no card, nothing to cancel.</p>
 
@@ -59,10 +113,15 @@
     <span class="chip soon">Windows — in progress</span>
   </div>
 
-  <figure class="hero-shot">
-    <img class="shot" src="img/panel_multiview.jpg" width="1600" height="900" alt="Four live streams playing at once in a single Crivid window">
-    <figcaption class="cap">Channels and titles shown are examples. Crivid does not provide any content.</figcaption>
-  </figure>
+  <div class="slider">
+    <div class="frame"><img src="img/panel_guide.jpg" alt="A guide built to be read — now and next across every channel, with the preview still playing" class="on" width="1600" height="900"><img src="img/panel_multiview.jpg" alt="Four streams, one screen — Multi-View running four live channels at once" width="1600" height="900" loading="lazy"><img src="img/panel_sources.jpg" alt="Jellyfin, Emby and Plex, with local files and network tuners" width="1600" height="900" loading="lazy"><img src="img/panel_library.jpg" alt="Your library on the big screen — posters, ratings, seasons and episodes" width="1600" height="900" loading="lazy"><img src="img/panel_fullscreen.jpg" alt="Live TV full screen, with the channel and what is on next" width="1600" height="900" loading="lazy"><img src="img/panel_remote.jpg" alt="Watch history — everything you watched, ready to resume" width="1600" height="900" loading="lazy"></div>
+    <div class="controls">
+      <button class="arrow prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>
+      <div class="dots"><button type="button" aria-label="Screenshot 1" aria-current="true"></button><button type="button" aria-label="Screenshot 2"></button><button type="button" aria-label="Screenshot 3"></button><button type="button" aria-label="Screenshot 4"></button><button type="button" aria-label="Screenshot 5"></button><button type="button" aria-label="Screenshot 6"></button></div>
+      <button class="arrow next" type="button" aria-label="Next screenshot"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
+    </div>
+    <p class="shot-note">Screenshots are illustrative. Channels and titles shown are examples and are not provided by Crivid.</p>
+  </div>
 </div></section>
 
 <section id="why"><div class="wrap">
@@ -90,23 +149,6 @@
     </div>
   </div>
   <p style="margin-top:24px;color:var(--muted)">If the player you have does everything you need, keep it. Crivid is for everyone else.</p>
-</div></section>
-
-<section id="see"><div class="wrap">
-  <div class="eyebrow">See it</div>
-  <h2>The evening, as the app actually looks.</h2>
-  <p>These are the screens, on a TV and on a phone.</p>
-
-  <div class="gallery">
-    <figure><img class="shot" src="img/panel_guide.jpg" width="1600" height="900" loading="lazy" alt="The Crivid TV guide with channel logos and a live preview"></figure>
-    <figure><img class="shot" src="img/panel_library.jpg" width="1600" height="900" loading="lazy" alt="Films with poster artwork, ratings, year and runtime instead of filenames"></figure>
-    <figure><img class="shot" src="img/panel_fullscreen.jpg" width="1600" height="900" loading="lazy" alt="Live TV playing full screen, with the channel name and what is on next"></figure>
-    <figure><img class="shot" src="img/panel_remote.jpg" width="1600" height="900" loading="lazy" alt="Watch history, everything you watched and ready to resume"></figure>
-    <!-- ⚠️ panel_sources.jpg viser skjermen med tittelen «Sources». Den heter
-         «Devices» fra 1.2.13 (Android) / 1.2.14 (iOS, macOS). Panelet er riktig
-         for versjonene som serveres 17.08, men MÅ regenereres når de nye er ute. -->
-    <figure><img class="shot" src="img/panel_sources.jpg" width="1600" height="900" loading="lazy" alt="Connecting Jellyfin, Emby, Plex, local files and an HDHomeRun tuner"></figure>
-  </div>
 </div></section>
 
 <section><div class="wrap">
@@ -199,6 +241,25 @@
 </div></footer>
 
 </div>
+<script>
+(function(){
+  var frame=document.querySelector('.frame'); if(!frame) return;
+  var imgs=frame.querySelectorAll('img'), dots=document.querySelectorAll('.dots button');
+  var i=0,timer=null,still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(n){ i=(n+imgs.length)%imgs.length;
+    imgs.forEach(function(el,k){el.classList.toggle('on',k===i);});
+    dots.forEach(function(el,k){ if(k===i) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current'); }); }
+  function start(){ if(still) return; stop(); timer=setInterval(function(){go(i+1);},4500); }
+  function stop(){ if(timer) clearInterval(timer); timer=null; }
+  document.querySelector('.arrow.next').addEventListener('click',function(){go(i+1);start();});
+  document.querySelector('.arrow.prev').addEventListener('click',function(){go(i-1);start();});
+  dots.forEach(function(el,k){el.addEventListener('click',function(){go(k);start();});});
+  var s=document.querySelector('.slider');
+  s.addEventListener('mouseenter',stop); s.addEventListener('mouseleave',start);
+  s.addEventListener('focusin',stop); s.addEventListener('focusout',start);
+  start();
+})();
+</script>
 <script src="store-links.js"></script>
 </body>
 </html>

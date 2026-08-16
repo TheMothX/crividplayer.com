@@ -209,3 +209,62 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:36px;back
   .step:first-child{border-top:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+
+/* ── Butikknapper ─────────────────────────────────────────────────────────
+   Beholdt fra den gamle sida: SVG-glyf + to linjer («Google Play» over
+   «DOWNLOAD NOW»). Fargene går nå gjennom tokens — originalen brukte
+   rgba(255,255,255,…), som er usynlig på lys bunn. */
+.store{
+  display:inline-flex;align-items:center;gap:.7rem;
+  padding:.8rem 1.25rem;border-radius:12px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  text-decoration:none;transition:border-color .18s,background .18s,transform .18s;
+}
+.store:hover{background:var(--surface-2);border-color:color-mix(in srgb,var(--cyan) 40%,var(--line));transform:translateY(-1px)}
+.store:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.store svg{width:22px;height:22px;flex:none;opacity:.92;stroke:var(--ink)}
+.store b{display:block;font-size:.95rem;font-variation-settings:'opsz' 14,'wght' 620;letter-spacing:-.01em}
+.store small{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+
+/* ── Karusellen ───────────────────────────────────────────────────────────
+   Uendret oppførsel fra den gamle sida, og av god grunn: hvert panel bærer
+   sin egen store overskrift, så en ekte kryssfade viser TO overskrifter oppå
+   hverandre midt i overgangen. Skiftet går derfor gjennom bakgrunnen — det
+   utgående tones ut FØRST, det inngående starter etter at det er borte. */
+.slider{position:relative;margin-top:52px}
+.frame{
+  position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;
+  background:var(--ground-2);border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .28s ease}
+.frame img.on{opacity:1;transition:opacity .42s ease .26s}
+@media (prefers-reduced-motion:reduce){.frame img,.frame img.on{transition:none}}
+
+.controls{display:flex;justify-content:center;align-items:center;gap:1.1rem;margin-top:1.15rem}
+.dots{display:flex;justify-content:center;gap:.45rem}
+.dots button{
+  width:7px;height:7px;padding:0;border-radius:99px;cursor:pointer;border:0;
+  background:color-mix(in srgb,var(--muted) 55%,transparent);transition:background .25s,width .25s;
+}
+.dots button[aria-current="true"]{background:var(--mint);width:22px}
+.dots button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+.arrow{
+  position:absolute;top:calc(50% - 2.6rem);transform:translateY(-50%);z-index:3;
+  width:40px;height:40px;border-radius:99px;cursor:pointer;display:grid;place-items:center;
+  border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 82%,transparent);
+  backdrop-filter:blur(8px);transition:background .2s,border-color .2s;
+}
+.arrow:hover{background:var(--surface);border-color:color-mix(in srgb,var(--cyan) 45%,var(--line))}
+.arrow:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.arrow svg{width:17px;height:17px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.arrow.prev{left:1rem}
+.arrow.next{right:1rem}
+/* Piler oppå bildet forutsetter rolig bakgrunn i kantene. Panelene har brødtekst
+   helt ut i venstre kant, og på smal skjerm dekket pilene den. Under 640 px
+   faller de derfor ut av bildet og inn i kontrollraden. */
+@media (max-width:640px){
+  .arrow{position:static;top:auto;transform:none;width:36px;height:36px}
+  .arrow.prev,.arrow.next{left:auto;right:auto}
+}
+.shot-note{margin:.55rem 0 0;text-align:center;font-size:.76rem;color:var(--muted);max-width:none}
