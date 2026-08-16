@@ -10,7 +10,7 @@
 
 @font-face{
   font-family:'InterVar';
-  src:url('fonts/inter-var.woff2?v=202608170107') format('woff2');
+  src:url('fonts/inter-var.woff2?v=202608170109') format('woff2');
   font-weight:100 900; font-style:normal; font-display:swap;
 }
 
@@ -44,22 +44,12 @@ body{
 .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
 a{color:inherit}
 
-/* Ryggraden: guidens nå-linje.
-   FØRSTE FORSØK MISLYKTES, og grunnen er verdt å skrive ned: linja lå 22 px til
-   venstre for teksten, mens seksjonsmerkene startet ved tekstkanten. Det var et
-   gap mellom linja og alt annet, så den leste som en renderingsfeil i tomrommet
-   — Christian spurte rett ut hva den var.
-   I en ekte programguide virker nå-linja fordi den KRYSSER innholdet. Nå gjør
-   den det: hvert seksjonsmerke har en kobling som går fra linja og inn til
-   etiketten, slik tidsmarkører henger på en tidsakse. */
+/* Ryggraden er FJERNET for godt. Ideen var guidens naa-linje foert gjennom
+   sida. Foerste forsoek hang ikke sammen med noe; andre forsoek koblet den til
+   seksjonsmerkene — og den fungerte fortsatt ikke i praksis. Christian saa den
+   to ganger og reagerte begge ganger. Da er den feil, uansett hvor god ideen er
+   paa papiret. */
 .page{position:relative}
-.page::before{
-  content:"";position:absolute;left:max(20px,calc(50% - 560px + 6px));
-  top:120px;bottom:180px;width:2px;
-  background:linear-gradient(180deg,transparent,var(--cyan) 4%,var(--mint) 66%,transparent);
-  opacity:.55;pointer-events:none;
-}
-@media (max-width:820px){.page::before{left:10px}}
 
 /* ── Topplinje ────────────────────────────────────────────────────────── */
 .top{position:relative;z-index:2;border-bottom:1px solid var(--line-soft);background:var(--ground)}
@@ -75,14 +65,8 @@ section{position:relative;padding:82px 0}
   position:relative;font-variation-settings:'opsz' 14,'wght' 640;font-size:.72rem;
   letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;
 }
-/* Koblingen fra ryggraden inn til etiketten. -22px treffer linja eksakt:
-   .wrap har 28px padding, linja staar 22px lenger ut. */
-.eyebrow::before{
-  content:"";position:absolute;left:-22px;top:50%;width:15px;height:2px;
-  transform:translateY(-1px);border-radius:2px;
-  background:linear-gradient(90deg,var(--cyan),var(--mint));
-}
-@media (max-width:820px){.eyebrow::before{display:none}}
+.eyebrow::before{content:"";display:inline-block;width:26px;height:2px;vertical-align:middle;
+  margin-right:12px;border-radius:2px;background:linear-gradient(90deg,var(--cyan),var(--mint))}
 
 h1,h2,h3{font-variation-settings:'opsz' 32,'wght' 780;letter-spacing:-.025em;line-height:1.04;text-wrap:balance}
 h1{font-size:clamp(2.7rem,6.4vw,4.9rem)}
