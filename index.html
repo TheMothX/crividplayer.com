@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Crivid Player — your channels and your own library, in one app</title>
-<meta name="description" content="A fast, private media player for the IPTV service you already pay for, with your Jellyfin, Emby or Plex library beside it. Bring your own source. No content included, no ads, no accounts.">
+<title>Crivid Player — your channels and your own library, in one guide</title>
+<meta name="description" content="A media player for the IPTV service you already pay for, with your Jellyfin, Emby or Plex library in the same guide. One purchase, no subscription, no account. Android, Android TV, iPhone, iPad and Mac.">
 <link rel="canonical" href="https://crividplayer.com/">
 <link rel="icon" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/icon.png">
@@ -12,281 +12,21 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://crividplayer.com/">
 <meta property="og:site_name" content="Crivid Player">
-<meta property="og:title" content="Crivid Player — your channels and your own library, in one app">
-<meta property="og:description" content="Your IPTV subscription and your Jellyfin, Emby or Plex library, side by side. On Android, Android TV, iPhone and iPad.">
-<meta property="og:image" content="https://crividplayer.com/img/panel_guide.jpg">
+<meta property="og:title" content="Crivid Player — your channels and your own library, in one guide">
+<meta property="og:description" content="Your IPTV subscription and your Jellyfin, Emby or Plex library, in the same guide. One purchase, no account. Android, Android TV, iPhone, iPad and Mac.">
+<meta property="og:image" content="https://crividplayer.com/img/panel_multiview.jpg">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
-<style>
-
-
-  :root{
-    --ink:#05070f;
-    --ink-2:#0b1020;
-    --paper:#f4f5f7;
-    --muted:#8a93a8;
-    --line:rgba(255,255,255,.10);
-    --accent:#2ce8c0;
-    --accent-2:#3fd0ff;
-    --measure:34rem;
-  }
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0;
-    background:var(--ink);
-    color:var(--paper);
-    font:400 17px/1.65 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    letter-spacing:-.005em;
-    overflow-x:hidden;
-  }
-  img{max-width:100%;height:auto;display:block}
-  a{color:inherit}
-
-  .wrap{width:min(1160px,92vw);margin-inline:auto}
-
-  /* ---------- nav ---------- */
-  nav{
-    position:sticky;top:0;z-index:50;
-    backdrop-filter:blur(14px);
-    background:color-mix(in srgb, var(--ink) 82%, transparent);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{display:flex;align-items:center;gap:.7rem;height:64px}
-  nav img{width:28px;height:28px;border-radius:7px}
-  .brand{font-weight:600;letter-spacing:-.02em}
-  .brand span{color:var(--muted);font-weight:400}
-  nav .spacer{flex:1}
-  .nav-link{
-    color:var(--muted);text-decoration:none;font-size:.92rem;
-    transition:color .18s;
-  }
-  .nav-link:hover{color:var(--paper)}
-
-  /* ---------- hero ---------- */
-  header{position:relative;padding:clamp(3.5rem,9vw,7rem) 0 clamp(3rem,7vw,5rem)}
-  header::before{
-    content:"";position:absolute;inset:-20% -30% auto -30%;height:70vh;
-    background:radial-gradient(60% 60% at 30% 20%, rgba(63,208,255,.16), transparent 70%),
-               radial-gradient(50% 50% at 78% 40%, rgba(44,232,192,.11), transparent 70%);
-    pointer-events:none;filter:blur(6px);
-  }
-  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
-  h1{
-    font-size:clamp(2.5rem,6.2vw,4.4rem);
-    line-height:1.02;letter-spacing:-.038em;font-weight:640;margin:0 0 1.3rem;
-  }
-  h1 em{
-    font-style:normal;
-    background:linear-gradient(100deg,var(--accent-2),var(--accent));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .lede{font-size:clamp(1.05rem,1.7vw,1.22rem);color:#c3cad8;max-width:var(--measure);margin:0 0 2rem}
-
-  .cta-row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
-  .store{
-    display:inline-flex;align-items:center;gap:.7rem;
-    padding:.8rem 1.25rem;border-radius:12px;
-    border:1px solid var(--line);background:rgba(255,255,255,.045);
-    text-decoration:none;transition:border-color .18s, background .18s, transform .18s;
-  }
-  .store:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);transform:translateY(-1px)}
-  .store svg{width:22px;height:22px;flex:none;opacity:.92}
-  .store b{display:block;font-size:.95rem;font-weight:560;letter-spacing:-.01em}
-  .store small{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.02em}
-  .store[data-soon]{opacity:.62;cursor:default;pointer-events:none}
-
-  .hero-shot{
-    position:relative;justify-self:end;width:100%;max-width:420px;
-    border-radius:22px;overflow:hidden;
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 40px 90px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(0,0,0,.4);
-    transform:rotate(-1.1deg);
-  }
-  .hero-shot img{width:100%}
-
-  /* ---------- byo strip: the compliance heart of the page ---------- */
-  .byo{
-    border-block:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(255,255,255,.028), transparent);
-    padding:clamp(2.5rem,5vw,3.75rem) 0;
-  }
-  .byo-grid{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.2rem,3vw,2.4rem);align-items:start}
-  .byo-mark{
-    width:52px;height:52px;border-radius:14px;flex:none;
-    display:grid;place-items:center;
-    border:1px solid rgba(44,232,192,.28);
-    background:rgba(44,232,192,.07);
-  }
-  .byo-mark svg{width:24px;height:24px;stroke:var(--accent)}
-  .byo h2{font-size:clamp(1.35rem,2.6vw,1.85rem);letter-spacing:-.028em;margin:.1rem 0 .7rem;font-weight:620}
-  .byo p{color:#aeb7c7;margin:0 0 .85rem;max-width:52rem}
-  .byo p:last-child{margin-bottom:0}
-  .byo strong{color:var(--paper);font-weight:560}
-
-  /* ---------- editorial feature rows ---------- */
-  section.feature{padding:clamp(3.5rem,8vw,6.5rem) 0}
-  .row{display:grid;gap:clamp(2rem,5vw,4rem);align-items:center}
-  .row.split{grid-template-columns:1fr 1fr}
-  .row.stack{grid-template-columns:1fr;gap:clamp(1.6rem,3vw,2.4rem)}
-  .row.stack .copy{max-width:44rem}
-  .row.flip .copy{order:2}
-  .eyebrow{
-    font-size:.76rem;text-transform:uppercase;letter-spacing:.15em;
-    color:var(--accent);font-weight:560;margin:0 0 .85rem;
-  }
-  .row h3{font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-.032em;line-height:1.12;margin:0 0 1rem;font-weight:620}
-  .row p{color:#aeb7c7;margin:0;max-width:var(--measure)}
-  .shot{
-    border-radius:16px;overflow:hidden;border:1px solid var(--line);
-    box-shadow:0 30px 70px -32px rgba(0,0,0,.85);
-  }
-  .shot.phone{max-width:330px}
-  .shot.right{justify-self:end}
-
-  /* full-bleed cinema moment */
-  .cinema{position:relative;margin:clamp(1rem,3vw,2rem) 0}
-  .cinema img{width:100vw;margin-left:calc(50% - 50vw);max-width:none}
-  .cinema::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(5,7,15,.55) 0%, transparent 22%, transparent 62%, var(--ink) 100%);
-    pointer-events:none;
-  }
-  .cinema-cap{
-    position:absolute;left:0;right:0;bottom:clamp(1.5rem,4vw,3rem);
-    text-align:center;padding-inline:1.5rem;z-index:2;
-  }
-  .cinema-cap h3{font-size:clamp(1.6rem,4vw,3rem);letter-spacing:-.035em;margin:0 0 .6rem;font-weight:620;text-shadow:0 2px 30px rgba(0,0,0,.7)}
-  .cinema-cap p{color:#cbd2df;margin:0 auto;max-width:38rem;text-shadow:0 2px 20px rgba(0,0,0,.8)}
-
-  /* small trio — deliberately uneven, not a card stack */
-  .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3.5vw,3rem);padding-top:1rem}
-  .trio h4{font-size:1.06rem;letter-spacing:-.02em;margin:.9rem 0 .45rem;font-weight:580}
-  .trio p{font-size:.94rem;color:#98a1b3;margin:0}
-  .trio svg{width:22px;height:22px;stroke:var(--accent);opacity:.9}
-
-  /* ---------- pricing ---------- */
-  .pricing{border-top:1px solid var(--line);padding:clamp(3.5rem,8vw,6rem) 0}
-  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
-  .tier{padding:1.9rem;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03)}
-  .tier.pro{
-    border-color:rgba(44,232,192,.32);
-    background:linear-gradient(160deg, rgba(44,232,192,.09), rgba(63,208,255,.035));
-  }
-  .tier h4{margin:0 0 .3rem;font-size:1.15rem;font-weight:600;letter-spacing:-.02em}
-  .tier .amount{font-size:2.15rem;font-weight:640;letter-spacing:-.035em;margin:.4rem 0 .2rem}
-  .tier .amount small{font-size:.85rem;font-weight:400;color:var(--muted);letter-spacing:0}
-  .tier ul{list-style:none;padding:0;margin:1.2rem 0 0}
-  .tier li{display:flex;gap:.6rem;align-items:flex-start;padding:.4rem 0;font-size:.95rem;color:#b7bfcd}
-  .tier li svg{width:17px;height:17px;flex:none;margin-top:.28rem;stroke:var(--accent)}
-  .note{font-size:.88rem;color:var(--muted);margin-top:1.2rem}
-
-  /* ---------- footer ---------- */
-  footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:.9rem}
-  .foot-grid{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center}
-  footer a{color:var(--muted);text-decoration:none;transition:color .18s}
-  footer a:hover{color:var(--paper)}
-  .foot-grid .spacer{flex:1}
-  .disclaimer{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--line);max-width:60rem;line-height:1.6;font-size:.85rem}
-
-  /* ---------- responsive ---------- */
-  @media (max-width:900px){
-    .hero-grid,.row.split,.price-grid,.byo-grid{grid-template-columns:1fr}
-    .row.flip .copy{order:0}
-    .hero-shot{justify-self:start;max-width:320px;transform:none;margin-top:.5rem}
-    .shot.right{justify-self:start}
-    .trio{grid-template-columns:1fr;gap:2rem}
-    .byo-grid{gap:1.1rem}
-    /* portrait: crop the band taller and darken hard so the caption stays legible */
-    .cinema img{aspect-ratio:5/6;height:auto;object-fit:cover;object-position:58% 42%}
-    .cinema::after{
-      background:linear-gradient(180deg, rgba(5,7,15,.5) 0%, rgba(5,7,15,.12) 26%,
-                  rgba(5,7,15,.72) 60%, rgba(5,7,15,.94) 85%, var(--ink) 100%);
-    }
-    .cinema-cap{bottom:1.75rem}
-  }
-  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-
-  .store.live{background:linear-gradient(180deg,rgba(44,232,192,.14),rgba(44,232,192,.06));border-color:rgba(44,232,192,.42)}
-  .store.live small{color:var(--accent)}
-  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
-  .chip{font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.32rem .7rem}
-  .chip.on{color:var(--accent);border-color:rgba(44,232,192,.4)}
-  .notice{border-bottom:1px solid var(--line);background:rgba(255,255,255,.028);padding:1.15rem 0}
-  .notice .wrap{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
-  .notice svg{width:20px;height:20px;stroke:var(--accent);fill:none;flex:none;margin-top:.15rem}
-  .notice p{margin:0;font-size:.93rem;line-height:1.6;color:#aeb7c7;max-width:74rem}
-  .notice strong{color:var(--paper);font-weight:560}
-  /* helten: én kolonne, slider i full bredde under */
-  header .hero-copy{max-width:44rem}
-  .slider{position:relative;margin-top:clamp(2.5rem,5vw,3.5rem)}
-  .frame{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;
-    background:var(--ink-2);border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 50px 110px -40px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.4)}
-  /* Panelene bærer hver sin store overskrift. En ekte kryssfade viser da TO
-     overskrifter oppå hverandre midt i overgangen — leselig grøt. Derfor går
-     skiftet gjennom bakgrunnen: det utgående tones ut først, det inngående
-     starter etter at det er borte. Ingen overlapp, og dyppet leses som villet. */
-  .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .28s ease}
-  .frame img.on{opacity:1;transition:opacity .42s ease .26s}
-  @media (prefers-reduced-motion: reduce){
-    .frame img,.frame img.on{transition:none}
-  }
-  .controls{display:flex;justify-content:center;align-items:center;gap:1.1rem;margin-top:1.15rem}
-  .dots{display:flex;justify-content:center;gap:.45rem}
-  .dots button{width:7px;height:7px;padding:0;border-radius:99px;cursor:pointer;border:0;background:rgba(255,255,255,.22);transition:background .25s,width .25s}
-  .dots button[aria-current="true"]{background:var(--accent);width:22px}
-  .dots button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  .arrow{position:absolute;top:calc(50% - 2.6rem);transform:translateY(-50%);z-index:3;width:40px;height:40px;border-radius:99px;cursor:pointer;display:grid;place-items:center;border:1px solid var(--line);background:color-mix(in srgb,var(--ink) 76%,transparent);backdrop-filter:blur(8px);transition:background .2s,border-color .2s}
-  .arrow:hover{background:var(--ink);border-color:rgba(255,255,255,.3)}
-  .arrow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .arrow svg{width:17px;height:17px;stroke:var(--paper);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  .arrow.prev{left:1rem}.arrow.next{right:1rem}
-  /* Piler oppå bildet forutsetter rolig bakgrunn i kantene. Panelene har
-     brødtekst helt ut i venstre kant, og på smal skjerm dekket pilene den.
-     Under 640 px faller de derfor ut av bildet og inn i kontrollraden. */
-  @media (max-width:640px){
-    .arrow{position:static;top:auto;transform:none;width:36px;height:36px}
-    .arrow.prev,.arrow.next{left:auto;right:auto}
-  }
-  .shot-note{margin:.55rem 0 0;text-align:center;font-size:.76rem;color:#6d768a}
-  .grid8{display:grid;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr));gap:2rem 2.6rem}
-  .cell{display:grid;grid-template-columns:auto 1fr;gap:.95rem;align-items:start}
-  .cell .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(44,232,192,.24);background:rgba(44,232,192,.06)}
-  .cell .ic svg{width:19px;height:19px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-  .cell h4{margin:.15rem 0 .3rem;font-size:1.02rem;font-weight:590;letter-spacing:-.018em;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
-  .cell p{margin:0;font-size:.93rem;line-height:1.55;color:#9aa4b6}
-  .pro-tag{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--accent);border-radius:4px;padding:.12rem .38rem;font-weight:700}
-  .model{margin-top:3.2rem;padding-top:2rem;border-top:1px solid var(--line);color:#aeb7c7;font-size:1rem;max-width:46rem}
-  .model strong{color:var(--paper);font-weight:560}
-  @media (prefers-reduced-motion:reduce){.frame img{transition:none}}
-
-
-
-  nav .brandmark{display:flex;align-items:center;gap:.6rem;text-decoration:none}
-
-  /* merkevare-lockup — speiler BrandWordmark i appen:
-     ordmerke + «IPTV Player» + hardt blinkende terminalmarkør */
-  .brandmark{display:flex;align-items:flex-end;gap:9px;text-decoration:none;line-height:1}
-  .brandmark img{width:auto;height:30px;border-radius:0;display:block}
-  .brand-sub{font-size:17px;font-weight:500;letter-spacing:.3px;color:#EAFBFF;
-    position:relative;bottom:1px}
-  .caret{width:9px;height:22px;background:#41E7FF;flex:none;margin-left:-2px;
-    box-shadow:0 0 7px rgba(56,225,255,.6);animation:caret 1.05s steps(1,end) infinite}
-  @keyframes caret{0%,49.99%{opacity:1}50%,100%{opacity:0}}
-  @media (prefers-reduced-motion:reduce){.caret{animation:none;opacity:1}}
-  .foot-grid .brandmark img{height:22px}
-  .foot-grid .brand-sub{font-size:13px}
-  .foot-grid .caret{height:16px;width:7px}
-</style>
+<link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="page.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Crivid IPTV Player",
   "applicationCategory": "MultimediaApplication",
-  "operatingSystem": "Android 7.0+, Android TV, iOS 15.0+, iPadOS 15.0+",
+  "operatingSystem": "Android 7.0+, Android TV, iOS 15.0+, iPadOS 15.0+, macOS 12.0+",
   "url": "https://crividplayer.com/",
   "downloadUrl": [
     "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
@@ -333,102 +73,174 @@
 </script>
 </head>
 <body>
-<nav><div class="wrap">
-  <a class="brandmark" href="/" aria-label="Crivid IPTV Player home"><img src="img/wordmark.png" alt="Crivid" width="229" height="68"><span class="brand-sub">IPTV Player</span><span class="caret" aria-hidden="true"></span></a><span class="spacer"></span>
-  <a class="nav-link" href="#features">Features</a><a class="nav-link" href="/pricing">Pricing</a><a class="nav-link" href="https://discord.gg/jTUG8FNECK" target="_blank" rel="noopener">Discord</a>
-</div></nav>
+<div class="page">
 
-<div class="notice"><div class="wrap">
-  <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-  <p><strong>Crivid Player is a media player only.</strong> It does not include, host, provide, resell or endorse
-  any channels, films or streams, and is not affiliated with any content provider. To watch anything you add your
-  own source — an M3U playlist, an Xtream login, a network tuner, or your own media server. Pro unlocks features in the app; it
-  does not include or provide access to any content.</p>
-</div></div>
+<header class="top"><div class="wrap">
+  <a href="/" aria-label="Crivid Player"><img src="img/wordmark.png" alt="Crivid Player"></a>
+  <nav class="nav">
+    <a class="nav-link" href="#why">Why switch</a>
+    <a class="nav-link" href="/pricing">Pricing</a>
+    <a class="nav-link" href="https://discord.gg/jTUG8FNECK">Discord</a>
+  </nav>
+</div></header>
 
-<header>
-  <div class="wrap">
-    <div class="hero-copy">
-      <h1>Everything you already pay for.<br><em>One app, one remote.</em></h1>
-      <p class="lede">Your IPTV subscription and your Jellyfin, Emby or Plex library, side by side in one
-      player — on your phone, your tablet and your TV.</p>
-      <div class="cta-row">
-        <a class="store live" href="https://play.google.com/store/apps/details?id=com.crivid.iptvplayer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2.5v19a1 1 0 0 0 1.5.87l15-9.5a1 1 0 0 0 0-1.74l-15-9.5A1 1 0 0 0 3 2.5z"/></svg>
-          <span><b>Google Play</b><small>DOWNLOAD NOW</small></span></a>
-        <a class="store live" href="https://apps.apple.com/app/id6783083716">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c.4-2 1.9-3.6 3.9-4-.1 2-1.6 3.7-3.9 4z"/><path d="M18.6 16.6c-.6 1.4-1.4 2.7-2.5 3.9-.8.8-1.5 1.2-2.3 1.2-.7 0-1.2-.2-2.1-.6-.9-.4-1.4-.6-2-.6s-1.2.2-2 .6c-.8.4-1.4.6-2 .6-.8 0-1.6-.5-2.4-1.4C1.6 18.2.7 15.4.9 12.8c.2-2.4 1.6-4.1 3.7-4.1.9 0 1.6.3 2.4.6.6.3 1 .4 1.3.4.3 0 .7-.1 1.4-.5.9-.4 1.6-.6 2.3-.5 1.7.1 3 .8 3.8 2.1-1.5 1-2.3 2.3-2.2 4 .1 1.4.7 2.5 1.8 3.3z"/></svg>
-          <span><b>App Store</b><small>DOWNLOAD NOW</small></span></a>
-      </div>
-      <div class="badges">
-        <span class="chip on">Android</span><span class="chip on">Android TV</span>
-        <span class="chip on">iPhone</span><span class="chip on">iPad</span>
-        <span class="chip">Apple TV soon</span><span class="chip">macOS soon</span><span class="chip">Windows soon</span>
-      </div>
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Crivid Player</div>
+  <h1>Everything you already pay for.
+    <span class="second">Your channels and your own library, in one guide.</span></h1>
+  <p class="lede">The IPTV subscription you already have, plus your Jellyfin, Emby or Plex library — in one player, on your phone, your tablet and your TV.</p>
+
+  <div class="cta">
+    <a class="store" href="https://play.google.com/store/apps/details?id=com.crivid.iptvplayer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2.5v19a1 1 0 0 0 1.5.87l15-9.5a1 1 0 0 0 0-1.74l-15-9.5A1 1 0 0 0 3 2.5z"/></svg>
+      <span><b>Google Play</b><small>DOWNLOAD NOW</small></span></a>
+    <a class="store" href="https://apps.apple.com/app/id6783083716">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c.4-2 1.9-3.6 3.9-4-.1 2-1.6 3.7-3.9 4z"/><path d="M18.6 16.6c-.6 1.4-1.4 2.7-2.5 3.9-.8.8-1.5 1.2-2.3 1.2-.7 0-1.2-.2-2.1-.6-.9-.4-1.4-.6-2-.6s-1.2.2-2 .6c-.8.4-1.4.6-2 .6-.8 0-1.6-.5-2.4-1.4C1.6 18.2.7 15.4.9 12.8c.2-2.4 1.6-4.1 3.7-4.1.9 0 1.6.3 2.4.6.6.3 1 .4 1.3.4.3 0 .7-.1 1.4-.5.9-.4 1.6-.6 2.3-.5 1.7.1 3 .8 3.8 2.1-1.5 1-2.3 2.3-2.2 4 .1 1.4.7 2.5 1.8 3.3z"/></svg>
+      <span><b>App Store</b><small>DOWNLOAD NOW</small></span></a>
+  </div>
+  <p class="fineprint">One purchase. No subscription. No account. Seven days of Pro included — no card, nothing to cancel.</p>
+
+  <!-- Plattformraden er en PÅSTAND og må måles mot butikkene før hver publisering.
+       Målt 2026-08-17: Android, Android TV, iPhone, iPad og Mac serveres.
+       Apple TV har aldri vært live (1.1.16 til review). Windows er ikke sendt inn. -->
+  <div class="platforms">
+    <span class="chip live">Android</span>
+    <span class="chip live">Android TV</span>
+    <span class="chip live">iPhone</span>
+    <span class="chip live">iPad</span>
+    <span class="chip live">Mac</span>
+    <span class="chip soon">Apple TV — in review</span>
+    <span class="chip soon">Windows — in progress</span>
+  </div>
+
+  <div class="slider">
+    <div class="frame"><img src="img/panel_guide.jpg" alt="A guide built to be read — now and next across every channel, with the preview still playing" class="on" width="1600" height="900"><img src="img/panel_multiview.jpg" alt="Four streams, one screen — Multi-View running four live channels at once" width="1600" height="900" loading="lazy"><img src="img/panel_sources.jpg" alt="Jellyfin, Emby and Plex, with local files and network tuners" width="1600" height="900" loading="lazy"><img src="img/panel_library.jpg" alt="Your library on the big screen — posters, ratings, seasons and episodes" width="1600" height="900" loading="lazy"><img src="img/panel_fullscreen.jpg" alt="Live TV full screen, with the channel and what is on next" width="1600" height="900" loading="lazy"><img src="img/panel_remote.jpg" alt="Watch history — everything you watched, ready to resume" width="1600" height="900" loading="lazy"></div>
+    <div class="controls">
+      <button class="arrow prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>
+      <div class="dots"><button type="button" aria-label="Screenshot 1" aria-current="true"></button><button type="button" aria-label="Screenshot 2"></button><button type="button" aria-label="Screenshot 3"></button><button type="button" aria-label="Screenshot 4"></button><button type="button" aria-label="Screenshot 5"></button><button type="button" aria-label="Screenshot 6"></button></div>
+      <button class="arrow next" type="button" aria-label="Next screenshot"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
     </div>
+    <p class="shot-note">Screenshots are illustrative. Channels and titles shown are examples and are not provided by Crivid.</p>
+  </div>
+</div></section>
 
-    <div class="slider">
-      <div class="frame"><img src="img/panel_guide.jpg" alt="A guide built to be read — now and next across every channel, with the preview still playing" class="on" width="1600" height="900"><img src="img/panel_multiview.jpg" alt="Four streams, one screen — Multi-View running four live channels at once" width="1600" height="900" loading="lazy"><img src="img/panel_sources.jpg" alt="Jellyfin, Emby and Plex — the Sources screen, with local files and network tuners" width="1600" height="900" loading="lazy"><img src="img/panel_library.jpg" alt="Your library on the big screen — posters, ratings, seasons and episodes in one grid" width="1600" height="900" loading="lazy"><img src="img/panel_fullscreen.jpg" alt="Full screen, nothing else — the controls fade away and the picture fills the screen" width="1600" height="900" loading="lazy"><img src="img/panel_remote.jpg" alt="Every control one press away — now and next, a live pill, the clock and picture-fit" width="1600" height="900" loading="lazy"></div>
-      <div class="controls">
-        <button class="arrow prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>
-        <div class="dots"><button type="button" aria-label="Screenshot 1" aria-current="true"></button><button type="button" aria-label="Screenshot 2"></button><button type="button" aria-label="Screenshot 3"></button><button type="button" aria-label="Screenshot 4"></button><button type="button" aria-label="Screenshot 5"></button><button type="button" aria-label="Screenshot 6"></button></div>
-        <button class="arrow next" type="button" aria-label="Next screenshot"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
-      </div>
-      <p class="shot-note">Screenshots are illustrative. Channels and titles shown are examples and are not provided by Crivid.</p>
+<section id="why"><div class="wrap">
+  <div class="eyebrow">Why switch</div>
+  <h2>Already have a player? Read this first.</h2>
+  <p>Your playlist was never the problem. Here is what actually changes.</p>
+
+  <div class="ledger">
+    <div class="lrow"><div class="them lhead">The player you have now</div><div class="us lhead">Crivid</div></div>
+    <div class="lrow">
+      <div class="them">A subscription, on top of the subscription you already pay for.</div>
+      <div class="us"><b>One purchase.</b> Pay once and it stays yours.</div>
+    </div>
+    <div class="lrow">
+      <div class="them">An account, a cloud, and your provider login sitting on someone's server.</div>
+      <div class="us"><b>No account.</b> Your sources stay on your device.</div>
+    </div>
+    <div class="lrow">
+      <div class="them">Your channels here. Your Plex library in a different app.</div>
+      <div class="us"><b>One guide.</b> IPTV, Jellyfin, Emby, Plex and a network tuner, together.</div>
+    </div>
+    <div class="lrow">
+      <div class="them">Set the whole thing up on the TV, with a remote.</div>
+      <div class="us"><b>Set it up on your phone.</b> It is the same app on every screen.</div>
     </div>
   </div>
-</header>
+  <p style="margin-top:24px;color:var(--muted)">If the player you have does everything you need, keep it. Crivid is for everyone else.</p>
+</div></section>
 
-<section class="feature" id="features">
-  <div class="wrap">
-    <div class="grid8"><div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="M3 9h18M9 9v10"/></svg></div><div><h4>TV guide</h4><p>Two days of listings with logos, a live preview and what's on next.</p></div></div><div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></div><div><h4>Media servers <span class="pro-tag">Pro</span></h4><p>Jellyfin, Emby and Plex libraries beside your channels.</p></div></div>
-<div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="13" width="19" height="7.5" rx="2"/><path d="M6.5 16.7h.01M10 16.7h.01"/><path d="M12 9.5v-6"/><path d="m8.5 6 3.5-3.5L15.5 6"/></svg></div><div><h4>HDHomeRun tuners <span class="pro-tag">Pro</span></h4><p>Add a network TV tuner and its channels join the guide with everything else.</p></div></div>
-<div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><path d="M6.5 12h5M17.5 12h.01"/><path d="M8 17.5v3M16 17.5v3"/></svg></div><div><h4>Local &amp; USB files <span class="pro-tag">Pro</span></h4><p>Play video files from the device or a USB drive, in the same library.</p></div></div><div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="8" height="7" rx="1"/><rect x="13" y="13" width="8" height="7" rx="1"/></svg></div><div><h4>Multi-View <span class="pro-tag">Pro</span></h4><p>Up to four streams on screen, audio switched with a tap.</p></div></div><div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M16 4v16M3 12h18"/></svg></div><div><h4>Films &amp; series <span class="pro-tag">Pro</span></h4><p>Posters, synopses, cast and episode lists — not a text list.</p></div></div><div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/><path d="M12 8v4l3 2"/></svg></div><div><h4>Catch-up <span class="pro-tag">Pro</span></h4><p>Replay past broadcasts where your provider supports it.</p></div></div><div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><div><h4>Multiple playlists <span class="pro-tag">Pro</span></h4><p>Combine several sources into one guide, or keep them apart.</p></div></div><div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><div><h4>Parental controls</h4><p>PIN-locked groups and hidden channels, enforced everywhere.</p></div></div><div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="15" rx="2"/><rect x="12" y="11" width="8" height="6" rx="1"/></svg></div><div><h4>Picture-in-picture <span class="pro-tag">Pro</span></h4><p>Keep watching in a corner while you do something else.</p></div></div><div class="cell"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.7-.8 1.7-1.6 0-.9-.7-1.4-.7-2.2 0-.8.6-1.4 1.5-1.4H16a5 5 0 0 0 5-5c0-4.3-4-7.8-9-7.8z"/><path d="M7.5 12h.01M10 8.2h.01M14.5 8.2h.01"/></svg></div><div><h4>Six themes <span class="pro-tag">Pro</span></h4><p>Midnight comes free. Pro adds five more, applied right across the app.</p></div></div></div>
-    <p class="model"><strong>Pro is a one-time purchase, not a subscription.</strong> Buy it once and it stays
-    yours — Google Play shows the price in your own currency. Seven days of Pro are included free, with no card
-    details and nothing to cancel.</p>
-  </div>
-</section>
-
-<section class="feature" style="padding-top:0">
-  <div class="wrap row split flip">
-    <div class="copy">
-      <p class="eyebrow">Media servers</p>
-      <h3>Your own library, in the same app.</h3>
-      <p>Connect Jellyfin, Emby or Plex and your films and series sit right next to your channels — same
-      interface, same remote. No switching apps halfway through the evening.</p>
+<section><div class="wrap">
+  <div class="eyebrow">Getting started</div>
+  <h2>Three steps. No account.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="n">01</div><h3>Add your source</h3>
+      <p>Paste an M3U link or enter your Xtream login. That is the whole setup — no email, no password to invent.</p>
     </div>
-    <figure class="shot phone right"><img src="img/phone_sources.jpg" alt="The Sources screen, showing Jellyfin, Emby and Plex alongside local files and network tuners" width="720" height="947" loading="lazy"></figure>
-  </div>
-</section>
-
-<section class="feature" style="padding-top:0">
-  <div class="wrap row split">
-    <div class="copy">
-      <p class="eyebrow">Themes</p>
-      <h3>Six looks. Same app.</h3>
-      <p>Midnight is the default — deep blue, easy on the eyes in a dark room. Pro adds five more,
-      from a pure-black OLED theme to warmer greens, purples and browns. The whole app changes with
-      it, guide included, on the phone and on the TV.</p>
+    <div class="step">
+      <div class="n">02</div><h3>The guide builds itself</h3>
+      <p>Channels, logos and two days of listings appear. Add a media server or a tuner and those land in the same guide.</p>
     </div>
-    <figure class="shot phone right"><img src="img/themes_trio.jpg" alt="The same guide shown in three of the six themes" width="720" height="844" loading="lazy"></figure>
+    <div class="step">
+      <div class="n">03</div><h3>Watch</h3>
+      <p>Phone, tablet, TV. Same app and same layout, whichever screen you pick up.</p>
+    </div>
   </div>
-</section>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <div class="eyebrow">The part nobody else does</div>
+  <h2>Your own library, in the same guide.</h2>
+  <p class="lede">Connect Jellyfin, Emby or Plex and your films and series sit beside your channels — same interface, same remote. Add an HDHomeRun and its channels join the guide with everything else. Play a file off a USB stick and it lands in the same library.</p>
+  <p class="punch">Not four apps. One.</p>
+
+  <div class="more">
+    <div><h3>Parental controls</h3><p>PIN-locked groups and hidden channels, enforced everywhere in the app.</p></div>
+    <div><h3>Catch-up</h3><p>Replay past broadcasts where your provider supports it.</p></div>
+    <div><h3>Multiple playlists<span class="pro-tag">PRO</span></h3><p>Combine several sources into one guide, or keep them apart.</p></div>
+    <div><h3>Picture-in-picture<span class="pro-tag">PRO</span></h3><p>Keep watching in a corner while you do something else.</p></div>
+    <div><h3>Six themes<span class="pro-tag">PRO</span></h3><p>Midnight is free. Five more change the whole app, guide included.</p></div>
+    <div><h3>Multi-View<span class="pro-tag">PRO</span></h3><p>Four streams on screen at once, with the sound on whichever one matters.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Pricing</div>
+  <h2>One purchase. Not a subscription.</h2>
+  <div class="panel">
+    <div class="price">Pay once</div>
+    <ul class="plist">
+      <li>Seven days of Pro included free — no card details, nothing to cancel.</li>
+      <li>After that, Pro is a single payment and it stays yours.</li>
+      <li>The store shows the price in your own currency.</li>
+      <li>No monthly fee, and no account to keep alive.</li>
+      <li>Uninstall it, reinstall it in two years — it is still yours.</li>
+    </ul>
+    <p style="margin-top:26px"><a class="nav-link" href="/pricing">What Pro unlocks →</a></p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Privacy</div>
+  <h2>Your login never leaves your device.</h2>
+  <p class="lede">Crivid has no accounts. No sign-up, no email, no password to invent. Your playlist, your Xtream login and your media server details are stored on your device and are never sent to us.</p>
+  <p class="punch">Other players ask you to hand your provider login to their cloud, then promise to encrypt it. We never receive it in the first place.</p>
+  <!-- Faktasjekket mot koden 2026-08-17: analytics logger kun enum-verdier
+       (source, via, reason, action, found, platform). Ingen URL, vert, brukernavn
+       eller spillelistedata forlater enheten. Derfor er formuleringen «aldri sendt
+       til oss» presis — mens «vi har ingen server» ville vært usant. -->
+  <p style="margin-top:22px;font-size:.88rem;color:var(--muted);max-width:60ch">The app counts anonymous usage so we know which features are worth building, and checks your purchase with the store. Neither of those includes your sources. <a href="https://crivid.com/crivid-iptv-privacy">Privacy policy</a>.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Questions</div>
+  <h2>The things people actually ask.</h2>
+  <div class="faq">
+    <details><summary>What do I need to use Crivid?</summary><p>A source you already have: an M3U playlist or an Xtream login from your provider, a media server such as Jellyfin, Emby or Plex, an HDHomeRun tuner, or video files on the device. Crivid plays what you bring.</p></details>
+    <details><summary>Does Crivid include any channels?</summary><p>No. Crivid is a player and nothing else. It does not include, host, provide or resell any channels, films or streams. You add your own source and you are responsible for holding the rights or subscription to access it.</p></details>
+    <details><summary>Is Pro a subscription?</summary><p>No. Pro is a one-time purchase. Seven days are included free with no card details, and after that a single payment unlocks it for good.</p></details>
+    <details><summary>Do I need an account?</summary><p>No. There is no sign-up, no email and no password. Everything lives on your device.</p></details>
+    <details><summary>Can I use more than one playlist?</summary><p>Yes, with Pro. Combine several sources into one guide, or keep them apart — hiding and organising are remembered per playlist.</p></details>
+    <details><summary>My guide will not load. What now?</summary><p>Usually the guide feed is very large. Crivid handles feeds well past 100 MB, so if the guide is empty, check that the EPG URL from your provider is reachable and returns XMLTV. If it still fails, come to <a href="https://discord.gg/jTUG8FNECK">Discord</a> and we will look at it with you.</p></details>
+  </div>
+</div></section>
 
 <footer><div class="wrap">
-  <div class="foot-grid">
-    <a class="brandmark" href="/" aria-label="Crivid IPTV Player home"><img src="img/wordmark.png" alt="Crivid" width="229" height="68"><span class="brand-sub">IPTV Player</span><span class="caret" aria-hidden="true"></span></a><span class="spacer"></span>
-    <a href="/pricing">Pricing</a><a href="/terms">Terms</a><a href="/refunds">Refunds</a>
+  <nav class="foot-nav">
+    <a href="/pricing">Pricing</a>
+    <a href="/terms">Terms</a>
+    <a href="/refunds">Refunds</a>
     <a href="https://crivid.com/crivid-iptv-privacy">Privacy</a>
-    <a href="https://discord.gg/jTUG8FNECK" target="_blank" rel="noopener">Discord</a>
+    <a href="https://discord.gg/jTUG8FNECK">Discord</a>
     <a href="mailto:hellothere@crivid.com">Support</a>
-  </div>
-  <p class="disclaimer">Crivid Player is a media player. It does not include, host, provide, resell or endorse
-  any television channels, films, or other content, and it is not affiliated with any content provider. Users are
-  responsible for the sources they add and for holding the necessary rights or subscriptions to access them.
-  &copy; Crivid AS, Norway.</p>
+  </nav>
+  <p class="legal"><strong>Crivid Player is a media player.</strong> It does not include, host, provide, resell or endorse any television channels, films, or other content, and it is not affiliated with any content provider. To watch anything you add your own source — an M3U playlist, an Xtream login, a network tuner, or your own media server. Pro unlocks features in the app; it does not include or provide access to any content. Users are responsible for the sources they add and for holding the necessary rights or subscriptions to access them.</p>
+  <p class="legal" style="margin-top:18px">© Crivid AS, Norway.</p>
 </div></footer>
 
+</div>
 <script>
 (function(){
   var frame=document.querySelector('.frame'); if(!frame) return;
@@ -448,6 +260,6 @@
   start();
 })();
 </script>
-<script src="/store-links.js" defer></script>
+<script src="store-links.js"></script>
 </body>
 </html>
