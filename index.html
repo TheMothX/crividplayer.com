@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Crivid Player — your channels and your own library, in one guide</title>
-<meta name="description" content="A media player for the IPTV service you already pay for, with your Jellyfin, Emby or Plex library in the same guide. One purchase, no subscription, no account. Android, Android TV, iPhone, iPad and Mac.">
+<meta name="description" content="A media player for the IPTV service you already pay for, with your Jellyfin, Emby or Plex library in the same guide. One purchase, no subscription, no account. Android, Android TV, iPhone, iPad, Apple TV and Mac.">
 <link rel="canonical" href="https://crividplayer.com/">
 <link rel="icon" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/icon.png">
@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://crividplayer.com/">
 <meta property="og:site_name" content="Crivid Player">
 <meta property="og:title" content="Crivid Player — your channels and your own library, in one guide">
-<meta property="og:description" content="Your IPTV subscription and your Jellyfin, Emby or Plex library, in the same guide. One purchase, no account. Android, Android TV, iPhone, iPad and Mac.">
+<meta property="og:description" content="Your IPTV subscription and your Jellyfin, Emby or Plex library, in the same guide. One purchase, no account. Android, Android TV, iPhone, iPad, Apple TV and Mac.">
 <meta property="og:image" content="https://crividplayer.com/img/panel_multiview.jpg">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
@@ -27,7 +27,7 @@
   "@type": "SoftwareApplication",
   "name": "Crivid IPTV Player",
   "applicationCategory": "MultimediaApplication",
-  "operatingSystem": "Android 7.0+, Android TV, iOS 15.0+, iPadOS 15.0+, macOS 12.0+",
+  "operatingSystem": "Android 7.0+, Android TV, iOS 15.0+, iPadOS 15.0+, tvOS 17.0+, macOS 12.0+",
   "url": "https://crividplayer.com/",
   "downloadUrl": [
     "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
@@ -101,15 +101,19 @@
   <p class="fineprint">One purchase. No subscription. No account. Seven days of Pro included — no card, nothing to cancel.</p>
 
   <!-- Plattformraden er en PÅSTAND og må måles mot butikkene før hver publisering.
-       Målt 2026-08-17: Android, Android TV, iPhone, iPad og Mac serveres.
-       Apple TV har aldri vært live (1.1.16 til review). Windows er ikke sendt inn. -->
+       Målt 2026-08-19 (kveld): Android, Android TV, iPhone, iPad og Mac serveres.
+       Apple TV ER NÅ LIVE: iTunes-oppslag med entity=tvSoftware gir 1.1.19 i
+       alle ti land (no/us/gb/de/se/dk/nl/fr/ca/au), bekreftet over flere runder
+       av serveringsvakta — ikke ett øyeblikksbilde, som er kravet fordi Apples
+       lookup flagrer mellom kall under utrulling.
+       Windows er fortsatt ikke sendt inn. -->
   <div class="platforms">
     <span class="chip live">Android</span>
     <span class="chip live">Android TV</span>
     <span class="chip live">iPhone</span>
     <span class="chip live">iPad</span>
     <span class="chip live">Mac</span>
-    <span class="chip soon">Apple TV — in review</span>
+    <span class="chip live">Apple TV</span>
     <span class="chip soon">Windows — in progress</span>
   </div>
 
