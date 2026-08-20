@@ -213,6 +213,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:36px;back
 .store:hover{border-color:var(--live);transform:translateY(-1px)}
 .store:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 .store svg{width:22px;height:22px;flex:none;opacity:.92;stroke:var(--ink)}
+.store.discord svg{fill:var(--ink);stroke:none}
 .store b{display:block;font-size:.95rem;font-variation-settings:'opsz' 14,'wght' 620;letter-spacing:-.01em}
 .store small{display:block;font-size:.72rem;color:var(--live);letter-spacing:.06em}
 
