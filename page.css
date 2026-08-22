@@ -226,13 +226,56 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:36px;back
    hverandre midt i overgangen. Skiftet går derfor gjennom bakgrunnen — det
    utgående tones ut FØRST, det inngående starter etter at det er borte. */
 .slider{position:relative;margin-top:52px}
-.frame{
-  position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;
-  background:var(--ground-2);border:1px solid var(--line);box-shadow:var(--shadow);
+/* OMGIVELSESLYS. En uskarp, forstørret kopi av SAMME bilde ligger bak rammen,
+   så skjermen ser ut til å lyse ut i et mørkt rom. Fargen kommer fra bildet
+   selv, så den skifter med hvert skjermbilde: blått i guiden, grønt på banen,
+   ravgult i kløfta. Nettleseren laster fila én gang og tegner den to ganger.
+
+   ⚠️ Rekkefølgen betyr noe: glødelaget må ligge UNDER rammen og ikke ta imot
+   mus, ellers spiser det klikkene på pilene. */
+.stage{position:relative;isolation:isolate}
+.glow{
+  position:absolute;inset:-7% -5%;z-index:0;pointer-events:none;
+  filter:blur(58px) saturate(1.45);opacity:.5;
+  border-radius:40px;overflow:hidden;
 }
-.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .28s ease}
-.frame img.on{opacity:1;transition:opacity .42s ease .26s}
-@media (prefers-reduced-motion:reduce){.frame img,.frame img.on{transition:none}}
+.glow img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .55s ease;
+}
+.glow img.on{opacity:1}
+
+.frame{
+  position:relative;z-index:1;border-radius:16px;overflow:hidden;aspect-ratio:16/9;
+  background:#05070c;
+  /* Tykkere kant enn før: skjermbildene er nå full-bleed uten egen marg, så
+     rammen må gjøre jobben en TV-ramme gjør. */
+  border:1px solid color-mix(in srgb,var(--line) 70%,#000);
+  box-shadow:0 30px 70px rgba(0,0,0,.62), 0 0 0 1px rgba(255,255,255,.05) inset;
+}
+/* EKTE kryssfade. Den gamle overgangen tonet ut FØRST og inn ETTERPÅ, fordi
+   bildene hadde innebrent overskrift og to overskrifter ville ligget oppå
+   hverandre. Bildene er rene nå, så begge kan gå samtidig. */
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .55s ease}
+.frame img.on{opacity:1}
+
+/* Bildeteksten er EKTE tekst, ikke brent inn i bildet: den kan leses av
+   søkemotorer, skalerer på mobil, og kan endres uten å rendre bilder på nytt. */
+.caps{position:relative;margin-top:1.15rem;min-height:2.9em}
+.cap{
+  position:absolute;inset:0;margin:0;text-align:center;
+  font-size:.98rem;line-height:1.45;color:var(--muted);max-width:52ch;
+  margin-inline:auto;opacity:0;transition:opacity .45s ease;
+}
+.cap.on{opacity:1}
+
+@media (prefers-reduced-motion:reduce){
+  .frame img,.glow img,.cap{transition:none}
+}
+@media (max-width:640px){
+  .glow{filter:blur(34px) saturate(1.4);opacity:.42}
+  .cap{font-size:.88rem}
+}
 
 .controls{display:flex;justify-content:center;align-items:center;gap:1.1rem;margin-top:1.15rem}
 .dots{display:flex;justify-content:center;gap:.45rem}

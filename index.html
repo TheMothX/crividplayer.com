@@ -15,12 +15,12 @@
 <meta property="og:site_name" content="Crivid Player">
 <meta property="og:title" content="Crivid Player — your channels and your own library, in one guide">
 <meta property="og:description" content="Your IPTV subscription and your Jellyfin, Emby or Plex library, in the same guide. One purchase, no account. Android, Android TV, iPhone, iPad, Apple TV and Mac.">
-<meta property="og:image" content="https://crividplayer.com/img/panel_multiview.jpg">
+<meta property="og:image" content="https://crividplayer.com/img/shots/shot_multiview.jpg">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/inter-var.woff2?v=202608170109" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="page.css?v=202608210300">
+<link rel="stylesheet" href="page.css?v=202608220400">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -42,10 +42,10 @@
   "installUrl": "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
   "image": "https://crividplayer.com/img/icon.png",
   "screenshot": [
-    "https://crividplayer.com/img/panel_guide.jpg",
-    "https://crividplayer.com/img/panel_multiview.jpg",
-    "https://crividplayer.com/img/panel_sources.jpg",
-    "https://crividplayer.com/img/panel_library.jpg"
+    "https://crividplayer.com/img/shots/shot_guide.jpg",
+    "https://crividplayer.com/img/shots/shot_multiview.jpg",
+    "https://crividplayer.com/img/shots/shot_library.jpg",
+    "https://crividplayer.com/img/shots/shot_live.jpg"
   ],
   "description": "A media player for the IPTV service you already subscribe to, with your Jellyfin, Emby or Plex library alongside it. Full TV guide, Multi-View, catch-up, HDHomeRun tuners and local files. Ships no channels or content of its own — you add your own source.",
   "featureList": [
@@ -128,7 +128,11 @@
   </div>
 
   <div class="slider">
-    <div class="frame"><img src="img/panel_guide.jpg" alt="A guide built to be read — now and next across every channel, with the preview still playing" class="on" width="1600" height="900"><img src="img/panel_multiview.jpg" alt="Four streams, one screen — Multi-View running four live channels at once" width="1600" height="900" loading="lazy"><img src="img/panel_sources.jpg" alt="Jellyfin, Emby and Plex, with local files and network tuners" width="1600" height="900" loading="lazy"><img src="img/panel_library.jpg" alt="Your library on the big screen — posters, ratings, seasons and episodes" width="1600" height="900" loading="lazy"><img src="img/panel_fullscreen.jpg" alt="Live TV full screen, with the channel and what is on next" width="1600" height="900" loading="lazy"><img src="img/panel_remote.jpg" alt="Watch history — everything you watched, ready to resume" width="1600" height="900" loading="lazy"></div>
+    <div class="stage">
+    <div class="glow" aria-hidden="true"><img src="img/shots/shot_guide.jpg" alt="" class="on" width="1600" height="900"><img src="img/shots/shot_multiview.jpg" alt="" width="1600" height="900" loading="lazy"><img src="img/shots/shot_library.jpg" alt="" width="1600" height="900" loading="lazy"><img src="img/shots/shot_live.jpg" alt="" width="1600" height="900" loading="lazy"><img src="img/shots/shot_history.jpg" alt="" width="1600" height="900" loading="lazy"><img src="img/shots/shot_themes.jpg" alt="" width="1600" height="900" loading="lazy"></div>
+    <div class="frame"><img src="img/shots/shot_guide.jpg" alt="A guide built to be read. Now and next on every channel, with the preview still playing." class="on" width="1600" height="900"><img src="img/shots/shot_multiview.jpg" alt="Four streams, one screen. Multi-View runs four live channels at once." width="1600" height="900" loading="lazy"><img src="img/shots/shot_library.jpg" alt="Your library on the big screen, with posters, ratings, seasons and episodes." width="1600" height="900" loading="lazy"><img src="img/shots/shot_live.jpg" alt="Live TV full screen, with the channel and what is coming up next." width="1600" height="900" loading="lazy"><img src="img/shots/shot_history.jpg" alt="Watch history. Everything you watched, ready to pick up again." width="1600" height="900" loading="lazy"><img src="img/shots/shot_themes.jpg" alt="Six themes to choose from, so the app looks the way you want it." width="1600" height="900" loading="lazy"></div>
+  </div>
+  <div class="caps"><p class="cap on">A guide built to be read. Now and next on every channel, with the preview still playing.</p><p class="cap">Four streams, one screen. Multi-View runs four live channels at once.</p><p class="cap">Your library on the big screen, with posters, ratings, seasons and episodes.</p><p class="cap">Live TV full screen, with the channel and what is coming up next.</p><p class="cap">Watch history. Everything you watched, ready to pick up again.</p><p class="cap">Six themes to choose from, so the app looks the way you want it.</p></div>
     <div class="controls">
       <button class="arrow prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>
       <div class="dots"><button type="button" aria-label="Screenshot 1" aria-current="true"></button><button type="button" aria-label="Screenshot 2"></button><button type="button" aria-label="Screenshot 3"></button><button type="button" aria-label="Screenshot 4"></button><button type="button" aria-label="Screenshot 5"></button><button type="button" aria-label="Screenshot 6"></button></div>
@@ -259,9 +263,14 @@
 (function(){
   var frame=document.querySelector('.frame'); if(!frame) return;
   var imgs=frame.querySelectorAll('img'), dots=document.querySelectorAll('.dots button');
+  // Glodelaget og bildeteksten folger SAMME indeks som bildet. Hadde de blitt
+  // styrt hver for seg, ville de sklidd fra hverandre ved raske klikk.
+  var glow=document.querySelectorAll('.glow img'), caps=document.querySelectorAll('.cap');
   var i=0,timer=null,still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function go(n){ i=(n+imgs.length)%imgs.length;
     imgs.forEach(function(el,k){el.classList.toggle('on',k===i);});
+    glow.forEach(function(el,k){el.classList.toggle('on',k===i);});
+    caps.forEach(function(el,k){el.classList.toggle('on',k===i);});
     dots.forEach(function(el,k){ if(k===i) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current'); }); }
   function start(){ if(still) return; stop(); timer=setInterval(function(){go(i+1);},4500); }
   function stop(){ if(timer) clearInterval(timer); timer=null; }
