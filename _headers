@@ -1,0 +1,24 @@
+# Cloudflare Pages leser denne fila og setter headerne på svarene.
+#
+# ⚠️ HSTS kan også slås på i Cloudflare-panelet (Edge Certificates -> HSTS).
+# Settes den BEGGE steder, vinner panelet. Derfor: verifiser at den faktisk
+# kommer ut i svaret etter deploy, ikke bare at fila er pushet. En header som
+# ikke serveres er ingen header.
+
+/*
+  # To år, inkluderer underdomener. Lukker downgrade-angrep der en angriper
+  # tvinger den forste forespørselen til http.
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  # Sida skal aldri kunne rammes inn av noen andre. Ingen del av den er ment
+  # til innbygging, så «none» er riktig og ikke for strengt.
+  Content-Security-Policy: frame-ancestors 'none'
+  X-Frame-Options: DENY
+  # Vi ber aldri om noen av disse. Å skru dem av eksplisitt gjør at et
+  # kompromittert tredjepartsskript heller ikke kan.
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+# Skjermbildene er ikke ?v=-stemplet slik CSS og fonter er, så de arver
+# standard cache. Fire timer er kort nok til at et byttet bilde vises samme
+# dag, men lang nok til at gjentatte besøk ikke laster 792 KB på nytt.
+/img/shots/*
+  Cache-Control: public, max-age=14400

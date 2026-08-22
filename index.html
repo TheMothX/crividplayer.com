@@ -24,58 +24,135 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Crivid IPTV Player",
-  "applicationCategory": "MultimediaApplication",
-  "operatingSystem": "Android 7.0+, Android TV, iOS 15.0+, iPadOS 15.0+, tvOS 17.0+, macOS 12.0+",
-  "url": "https://crividplayer.com/",
-  "dateModified": "2026-08-22",
-  "sameAs": [
-    "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
-    "https://apps.apple.com/app/id6783083716",
-    "https://discord.gg/jTUG8FNECK"
-  ],
-  "downloadUrl": [
-    "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
-    "https://apps.apple.com/app/id6783083716"
-  ],
-  "installUrl": "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
-  "image": "https://crividplayer.com/img/icon.png",
-  "screenshot": [
-    "https://crividplayer.com/img/shots/shot_guide.jpg",
-    "https://crividplayer.com/img/shots/shot_multiview.jpg",
-    "https://crividplayer.com/img/shots/shot_library.jpg",
-    "https://crividplayer.com/img/shots/shot_live.jpg"
-  ],
-  "description": "A media player for the IPTV service you already subscribe to, with your Jellyfin, Emby or Plex library alongside it. Full TV guide, Multi-View, catch-up, HDHomeRun tuners and local files. Ships no channels or content of its own — you add your own source.",
-  "featureList": [
-    "TV guide (EPG) from your own XMLTV source",
-    "Jellyfin, Emby and Plex libraries",
-    "Multi-View — up to four streams at once",
-    "Catch-up and replay",
-    "Multiple playlists combined into one guide",
-    "HDHomeRun network tuners",
-    "Local and USB video files",
-    "Parental controls with PIN-locked groups",
-    "Picture-in-picture",
-    "Six colour themes across the whole app"
-  ],
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD",
-    "description": "Free to install. Pro is an optional one-time purchase, not a subscription."
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "Crivid AS",
-    "url": "https://crivid.com/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Crivid AS",
-    "url": "https://crivid.com/"
-  }
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Crivid IPTV Player",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Android 7.0+, Android TV, iOS 15.0+, iPadOS 15.0+, tvOS 17.0+, macOS 12.0+",
+      "url": "https://crividplayer.com/",
+      "dateModified": "2026-08-22",
+      "sameAs": [
+        "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
+        "https://apps.apple.com/app/id6783083716",
+        "https://discord.gg/jTUG8FNECK"
+      ],
+      "downloadUrl": [
+        "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
+        "https://apps.apple.com/app/id6783083716"
+      ],
+      "installUrl": [
+        "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
+        "https://apps.apple.com/app/id6783083716"
+      ],
+      "image": "https://crividplayer.com/img/icon.png",
+      "screenshot": [
+        "https://crividplayer.com/img/shots/shot_guide.jpg",
+        "https://crividplayer.com/img/shots/shot_multiview.jpg",
+        "https://crividplayer.com/img/shots/shot_library.jpg",
+        "https://crividplayer.com/img/shots/shot_live.jpg"
+      ],
+      "description": "A media player for the IPTV service you already subscribe to, with your Jellyfin, Emby or Plex library alongside it. Full TV guide, Multi-View, catch-up, HDHomeRun tuners and local files. Ships no channels or content of its own — you add your own source.",
+      "featureList": [
+        "TV guide (EPG) from your own XMLTV source",
+        "Jellyfin, Emby and Plex libraries",
+        "Multi-View — up to four streams at once",
+        "Catch-up and replay",
+        "Multiple playlists combined into one guide",
+        "HDHomeRun network tuners",
+        "Local and USB video files",
+        "Parental controls with PIN-locked groups",
+        "Picture-in-picture",
+        "Six colour themes across the whole app"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free to install. Pro is an optional one-time purchase, not a subscription."
+      },
+      "author": {
+        "@id": "https://crividplayer.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://crividplayer.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://crividplayer.com/#organization",
+      "name": "Crivid AS",
+      "url": "https://crivid.com/",
+      "logo": "https://crividplayer.com/img/icon.png",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "NO:ORGNR",
+        "name": "Norwegian Organisation Number (Bronnoysundregistrene)",
+        "value": "937 567 308"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Furuhaugvegen 21",
+        "postalCode": "7549",
+        "addressLocality": "Tanem",
+        "addressCountry": "NO"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://crividplayer.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What do I need to use Crivid?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A source you already have: an M3U playlist or an Xtream login from your provider, a media server such as Jellyfin, Emby or Plex, an HDHomeRun tuner, or video files on the device. Crivid plays what you bring."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Crivid include any channels?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Crivid is a player and nothing else. It does not include, host, provide or resell any channels, films or streams. You add your own source and you are responsible for holding the rights or subscription to access it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Pro a subscription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Pro is a one-time purchase. Seven days are included free with no card details, and after that a single payment unlocks it for good."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is no sign-up, no email and no password. Everything lives on your device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use more than one playlist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, with Pro. Combine several sources into one guide, or keep them apart — hiding and organising are remembered per playlist."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My guide will not load. What now?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually the guide feed is very large. Crivid handles feeds well past 100 MB, so if the guide is empty, check that the EPG URL from your provider is reachable and returns XMLTV. If it still fails, come to Discord and we will look at it with you."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -129,8 +206,8 @@
 
   <div class="slider">
     <div class="stage">
-    <div class="glow" aria-hidden="true"><img src="img/shots/shot_guide.webp" alt="" class="on" width="1600" height="900"><img src="img/shots/shot_multiview.webp" alt="" width="1600" height="900" loading="lazy"><img src="img/shots/shot_library.webp" alt="" width="1600" height="900" loading="lazy"><img src="img/shots/shot_live.webp" alt="" width="1600" height="900" loading="lazy"><img src="img/shots/shot_history.webp" alt="" width="1600" height="900" loading="lazy"><img src="img/shots/shot_themes.webp" alt="" width="1600" height="900" loading="lazy"></div>
-    <div class="frame"><img src="img/shots/shot_guide.webp" alt="A guide built to be read. Now and next on every channel, with the preview still playing." class="on" width="1600" height="900"><img src="img/shots/shot_multiview.webp" alt="Four streams, one screen. Multi-View runs four live channels at once." width="1600" height="900" loading="lazy"><img src="img/shots/shot_library.webp" alt="Your library on the big screen, with posters, ratings, seasons and episodes." width="1600" height="900" loading="lazy"><img src="img/shots/shot_live.webp" alt="Live TV full screen, with the channel and what is coming up next." width="1600" height="900" loading="lazy"><img src="img/shots/shot_history.webp" alt="Watch history. Everything you watched, ready to pick up again." width="1600" height="900" loading="lazy"><img src="img/shots/shot_themes.webp" alt="Six themes to choose from, so the app looks the way you want it." width="1600" height="900" loading="lazy"></div>
+    <div class="glow" aria-hidden="true"><img src="img/shots/shot_guide.webp" alt="" class="on" fetchpriority="high" width="1600" height="900"><img src="img/shots/shot_multiview.webp" alt="" width="1600" height="900"><img src="img/shots/shot_library.webp" alt="" width="1600" height="900"><img src="img/shots/shot_live.webp" alt="" width="1600" height="900"><img src="img/shots/shot_history.webp" alt="" width="1600" height="900"><img src="img/shots/shot_themes.webp" alt="" width="1600" height="900"></div>
+    <div class="frame"><img src="img/shots/shot_guide.webp" fetchpriority="high" alt="A guide built to be read. Now and next on every channel, with the preview still playing." class="on" width="1600" height="900"><img src="img/shots/shot_multiview.webp" alt="Four streams, one screen. Multi-View runs four live channels at once." width="1600" height="900"><img src="img/shots/shot_library.webp" alt="Your library on the big screen, with posters, ratings, seasons and episodes." width="1600" height="900"><img src="img/shots/shot_live.webp" alt="Live TV full screen, with the channel and what is coming up next." width="1600" height="900"><img src="img/shots/shot_history.webp" alt="Watch history. Everything you watched, ready to pick up again." width="1600" height="900"><img src="img/shots/shot_themes.webp" alt="Six themes to choose from, so the app looks the way you want it." width="1600" height="900"></div>
   </div>
   <div class="caps"><p class="cap on">A guide built to be read. Now and next on every channel, with the preview still playing.</p><p class="cap">Four streams, one screen. Multi-View runs four live channels at once.</p><p class="cap">Your library on the big screen, with posters, ratings, seasons and episodes.</p><p class="cap">Live TV full screen, with the channel and what is coming up next.</p><p class="cap">Watch history. Everything you watched, ready to pick up again.</p><p class="cap">Six themes to choose from, so the app looks the way you want it.</p></div>
     <div class="controls">

@@ -279,11 +279,20 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:36px;back
 
 .controls{display:flex;justify-content:center;align-items:center;gap:1.1rem;margin-top:1.15rem}
 .dots{display:flex;justify-content:center;gap:.45rem}
+/* Prikken er 7px, men TRYKKFLATA er 24px. Revisjonen 22.08 målte at 7x7 er
+   for lite til å treffes pålitelig med tommelen. Løsningen er ikke en større
+   prikk (det ville endret designet), men en gjennomsiktig padding rundt den:
+   fingeren treffer 24px, øyet ser 7px. */
+.dots{gap:0}
 .dots button{
   width:7px;height:7px;padding:0;border-radius:99px;cursor:pointer;border:0;
   background:color-mix(in srgb,var(--muted) 55%,transparent);transition:background .25s,width .25s;
+  /* box-sizing:content-box gjør at paddingen legger seg UTENPÅ de 7 pikslene
+     i stedet for å spise dem. Uten den ville prikken krympet til ingenting. */
+  box-sizing:content-box;
+  padding:8.5px;margin:0;background-clip:content-box;
 }
-.dots button[aria-current="true"]{background:var(--mint);width:22px}
+.dots button[aria-current="true"]{background:var(--mint);width:22px;background-clip:content-box}
 .dots button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 
 .arrow{
