@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/inter-var.woff2?v=202608170109" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="page.css?v=202608220400">
+<link rel="stylesheet" href="page.css?v=202609080030">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -219,6 +219,16 @@
   </div>
 </div></section>
 
+<section class="stats-sec"><div class="wrap">
+  <div class="eyebrow">Where it stands</div>
+  <div class="stats">
+    <div class="stat"><span class="n" id="stat-users">1,154</span><div class="l">Active users</div><div class="s">Last 28 days</div></div>
+    <div class="stat"><span class="n">6</span><div class="l">Devices it runs on</div><div class="s">Phone, tablet, TV, Mac</div></div>
+    <div class="stat"><span class="n"><a href="/roadmap">What&#39;s next &rarr;</a></span><div class="l">The roadmap</div><div class="s">Updated as things ship</div></div>
+  </div>
+</div></section>
+
+
 <section id="why"><div class="wrap">
   <div class="eyebrow">Why switch</div>
   <h2>Already have a player? Read this first.</h2>
@@ -359,6 +369,18 @@
   s.addEventListener('focusin',stop); s.addEventListener('focusout',start);
   start();
 })();
+</script>
+
+<script>
+/* Tallet i stripa. stats.json skrives av en jobb paa MothBot en gang i doegnet.
+   Feiler hentingen, staar tallet i HTML-en igjen — en side som viser et litt
+   gammelt tall er bedre enn en som viser en tom rute. */
+fetch('/stats.json?t=' + Date.now()).then(function(r){ return r.ok ? r.json() : null; })
+  .then(function(d){
+    if (!d || typeof d.active_users !== 'number') return;
+    var el = document.getElementById('stat-users');
+    if (el) el.textContent = d.active_users.toLocaleString('en-US');
+  }).catch(function(){});
 </script>
 <script src="store-links.js"></script>
 </body>

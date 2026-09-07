@@ -315,3 +315,25 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:36px;back
 }
 .shot-note{margin:.55rem 0 0;text-align:center;font-size:.76rem;color:var(--muted);max-width:none}
 
+
+/* ── Stats-stripe ─────────────────────────────────────────────────────────
+   Tre ruter rett under helten. Tallet i foerste rute byttes av skriptet i
+   index.html; verdien som staar i HTML-en er fallback, ikke pynt. */
+.stats-sec{padding-top:0;padding-bottom:0}
+.stats{border:1px solid var(--line);border-radius:14px;background:var(--surface);
+  display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden}
+.stat{padding:30px 26px;text-align:center;border-left:1px solid var(--line-soft)}
+.stat:first-child{border-left:none}
+.stat .n{font-variation-settings:'opsz' 32,'wght' 780;font-size:2.35rem;letter-spacing:-.025em;
+  line-height:1.05;display:block;color:var(--ink)}
+.stat .l{margin-top:8px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);font-variation-settings:'opsz' 14,'wght' 640}
+.stat .s{margin-top:3px;font-size:.75rem;color:var(--muted);opacity:.72}
+.stat a{color:var(--mint);text-decoration:none}
+.stat a:hover{text-decoration:underline}
+.stat a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+@media(max-width:720px){
+  .stats{grid-template-columns:1fr}
+  .stat{border-left:none;border-top:1px solid var(--line-soft)}
+  .stat:first-child{border-top:none}
+}
