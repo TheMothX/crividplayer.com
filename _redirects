@@ -2,3 +2,8 @@
 # butikkene og kundene en adresse på vårt eget domene (gjennomgang 26.09).
 /privacy  https://crivid.com/crivid-iptv-privacy  302
 /support  /help  301
+
+# Interne filer skal aldri vises. README.md ble slettet 26.09, men Pages
+# leverte en lagret kopi videre; videresendingen tar over uansett.
+/README.md  /  301
+/.gitignore  /  301
