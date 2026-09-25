@@ -16,7 +16,7 @@
    juridiske sider som Paddle vurderer. */
 
 :root{
-  --ink:#05070f;
+  --ink:#060B16;
   --ink-2:#0b1020;
   --paper:#f4f5f7;
   --muted:#8a93a8;
@@ -28,8 +28,8 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--ink);color:var(--paper);
-  font:400 17px/1.7 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  letter-spacing:-.005em;overflow-x:hidden;
+  font:400 17px/1.7 "InterVar","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  letter-spacing:-.005em;overflow-x:clip;
 }
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -103,3 +103,52 @@ footer a:hover{color:var(--paper)}
   max-width:60rem;line-height:1.6;font-size:.85rem}
 
 @media (max-width:900px){.price-grid{grid-template-columns:1fr}}
+
+
+/* ── Gjennomgang 26.09.2026 ───────────────────────────────────────────────
+ Undersidene faar forsidens skrift og bakgrunn, og toppen brekker ikke paa
+ telefon. Fortsatt egen fil: tokenavnene her har motsatt rolle av page.css. */
+@font-face{
+ font-family:'InterVar';
+ src:url('/fonts/inter-var.woff2?v=202608170109') format('woff2');
+ font-weight:100 900;font-style:normal;font-display:swap;
+}
+
+/* «IPTV Player» brakk over to linjer paa 390 px, og markøren la seg oppaa
+ «Features». Under 560 px vises bare ordmerket. */
+.brand-sub{white-space:nowrap}
+@media (max-width:560px){
+ nav .brand-sub,nav .caret{display:none}
+ nav .wrap{gap:.9rem}
+ .nav-link{font-size:.88rem}
+}
+
+/* Trykkflater paa minst 44 px. */
+.nav-link{display:inline-block;padding:10px 2px}
+footer .foot-grid a{display:inline-block;padding:8px 0}
+
+/* Streken over ansvarsfraskrivelsen stoppet midt paa siden. */
+.disclaimer{max-width:none}
+.disclaimer{padding-right:0}
+
+/* Pris-kortene fyller bredden, og Pro-kortet slutter med butikk-knappene. */
+.price-grid{max-width:none}
+.tier-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.4rem}
+.store{display:inline-flex;align-items:center;padding:.7rem 1.1rem;border-radius:12px;text-decoration:none;
+ background:linear-gradient(135deg,#22DDF5,#3BE8A8);color:#04121C;transition:filter .18s,transform .18s}
+.store:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.store:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px}
+.store b{display:block;font-size:.95rem;font-weight:640;letter-spacing:-.01em}
+.store small{display:block;font-size:.76rem;opacity:.8}
+
+/* Hjelpesiden */
+.help-toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 2rem;padding:0;list-style:none}
+.help-toc a{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:99px;
+ font-size:.88rem;color:var(--paper);border-bottom:1px solid var(--line)}
+.help-toc a:hover{border-color:var(--accent)}
+.doc ol{margin:0 0 1rem;padding-left:1.3rem}
+.doc ol li{padding:.2rem 0}
+.doc h2[id]{scroll-margin-top:84px}
+.nav-link{white-space:nowrap}
+@media (max-width:560px){ nav .wrap{gap:.75rem} .nav-link{font-size:.84rem} }
+@media (max-width:360px){ nav .nav-link[href="/#features"]{display:none} }

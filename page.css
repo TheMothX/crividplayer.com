@@ -337,3 +337,67 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:36px;back
   .stat{border-left:none;border-top:1px solid var(--line-soft)}
   .stat:first-child{border-top:none}
 }
+
+/* ── Gjennomgang 26.09.2026 ───────────────────────────────────────────────
+ Fire agenter gikk over sida. Endringene under er samlet her med vilje, saa
+ de kan leses som én beslutning og ikke smøres utover fila. */
+
+/* Glødelaget bak karusellen stakk 8 px ut paa nettbrett (768), og hele sida
+ rullet sidelengs. clip, ikke hidden: hidden lager en rullebeholder og
+ brekker position:sticky. */
+html,body{overflow-x:clip}
+
+/* Butikknappene skal vinne blikket, ikke Discord. Fylt mint med mørk tekst;
+ Discord er en tekstlenke under finskriften. */
+.store{background:linear-gradient(135deg,var(--cyan),var(--mint));border-color:transparent;color:var(--on-accent)}
+.store:hover{border-color:transparent;filter:brightness(1.06)}
+.store svg{stroke:var(--on-accent);opacity:1}
+.store small{color:var(--on-accent);opacity:.78;letter-spacing:.02em;font-size:.76rem;text-transform:none}
+.fineprint b{color:var(--ink);font-variation-settings:'opsz' 14,'wght' 640}
+.community{margin-top:8px;font-size:.9rem;color:var(--muted)}
+.community a{color:var(--mint);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--mint) 40%,transparent)}
+.community a:hover{border-bottom-color:var(--mint)}
+.community a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+
+/* PRO skal synes der Pro-funksjonene staar. */
+.pro-note{margin-top:14px;font-size:.92rem;color:var(--muted)}
+h2 .pro-tag{font-size:.8rem;vertical-align:.35em}
+
+/* Seks funksjoner i fire kolonner ga to tomme ruter paa PC. */
+@media (min-width:900px){.more{grid-template-columns:repeat(3,1fr)}}
+
+/* Etiketter under 12 px var paa grensen i dempet farge paa mørk bunn. */
+.pro-tag{font-size:.7rem}
+.eyebrow{font-size:.76rem}
+.chip{font-size:.8rem}
+.stat .l{font-size:.76rem}
+
+/* Trykkflater paa minst 44 px paa telefon. */
+.nav-link,.foot-nav a{display:inline-block;padding:10px 2px}
+.top .wrap{padding-top:8px;padding-bottom:8px}
+.dots button{padding:10.5px}
+@media (max-width:640px){
+ .arrow{width:44px;height:44px}
+ /* Definisjonen gjentar leden; paa telefon skyver den første skjermbilde ned. */
+ .define{display:none}
+}
+
+/* Sammenlikningen mistet kolonnene paa telefon: overskriftene stablet seg
+ øverst og radene vekslet uten merke. Hver celle faar sin egen etikett. */
+@media (max-width:760px){
+ .lrow:first-child{display:none}
+ .lrow .them::before,.lrow .us::before{
+  display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:4px;font-variation-settings:'opsz' 14,'wght' 640;
+ }
+ .lrow .them::before{content:"The player you have now"}
+ .lrow .us::before{content:"Crivid"}
+}
+/* Fire menypunkter ved siden av ordmerket brakk i to rader paa 390 px.
+ Paa smal skjerm faar menyen sin egen rad under ordmerket. */
+.nav-link{white-space:nowrap}
+@media (max-width:560px){
+ .top .wrap{flex-wrap:wrap;row-gap:0}
+ .nav{margin-left:0;width:100%;gap:18px}
+ h1{font-size:2.25rem}
+}

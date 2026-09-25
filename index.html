@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Crivid Player — your channels and your own library, in one guide</title>
-<meta name="description" content="A media player for the IPTV service you already pay for, with your Jellyfin, Emby or Plex library in the same guide. One purchase, no subscription, no account. Android, Android TV, iPhone, iPad, Apple TV and Mac.">
+<title>Crivid IPTV Player: your IPTV, Jellyfin, Emby and Plex in one guide</title>
+<meta name="description" content="A media player for the IPTV service you already pay for, with your Jellyfin, Emby or Plex library in the same guide. Free to download, Pro is a one-time purchase. No subscription, no account. Android, Android TV, Google TV, iPhone, iPad, Apple TV and Mac.">
 <link rel="canonical" href="https://crividplayer.com/">
-<link rel="icon" href="img/icon.png">
-<link rel="apple-touch-icon" href="img/icon.png">
+<link rel="icon" href="img/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-180.png">
 <meta name="theme-color" content="#060B16">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://crividplayer.com/">
-<meta property="og:site_name" content="Crivid Player">
-<meta property="og:title" content="Crivid Player — your channels and your own library, in one guide">
-<meta property="og:description" content="Your IPTV subscription and your Jellyfin, Emby or Plex library, in the same guide. One purchase, no account. Android, Android TV, iPhone, iPad, Apple TV and Mac.">
+<meta property="og:site_name" content="Crivid IPTV Player">
+<meta property="og:title" content="Crivid IPTV Player: your IPTV, Jellyfin, Emby and Plex in one guide">
+<meta property="og:description" content="Your IPTV subscription and your Jellyfin, Emby or Plex library, in the same guide. Free to download, Pro is a one-time purchase. No account. Android, Android TV, Google TV, iPhone, iPad, Apple TV and Mac.">
 <meta property="og:image" content="https://crividplayer.com/img/shots/shot_multiview-r2.jpg">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/inter-var.woff2?v=202608170109" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="page.css?v=202609080030">
+<link rel="stylesheet" href="page.css?v=202609260100">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -31,7 +31,7 @@
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "Android 7.0+, Android TV, iOS 15.0+, iPadOS 15.0+, tvOS 17.0+, macOS 12.0+",
       "url": "https://crividplayer.com/",
-      "dateModified": "2026-08-24",
+      "dateModified": "2026-09-26",
       "sameAs": [
         "https://play.google.com/store/apps/details?id=com.crivid.iptvplayer",
         "https://apps.apple.com/app/id6783083716",
@@ -52,18 +52,18 @@
         "https://crividplayer.com/img/shots/shot_library-r2.jpg",
         "https://crividplayer.com/img/shots/shot_live-r2.jpg"
       ],
-      "description": "A media player for the IPTV service you already subscribe to, with your Jellyfin, Emby or Plex library alongside it. Full TV guide, Multi-View, catch-up, HDHomeRun tuners and local files. Ships no channels or content of its own — you add your own source.",
+      "description": "A media player for the IPTV service you already subscribe to, with your Jellyfin, Emby or Plex library alongside it. Full TV guide, Multi-View, catch-up, HDHomeRun tuners and local files. Ships no channels or content of its own. You add your own source.",
       "featureList": [
         "TV guide (EPG) from your own XMLTV source",
         "Jellyfin, Emby and Plex libraries",
-        "Multi-View — up to four streams at once",
+        "Multi-View, up to four streams at once",
         "Catch-up and replay",
         "Multiple playlists combined into one guide",
         "HDHomeRun network tuners",
         "Local and USB video files",
         "Parental controls with PIN-locked groups",
         "Picture-in-picture",
-        "Six colour themes across the whole app"
+        "Colour themes across the whole app"
       ],
       "offers": {
         "@type": "Offer",
@@ -136,10 +136,18 @@
         },
         {
           "@type": "Question",
+          "name": "Does Crivid sell channels or IPTV subscriptions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Never. Crivid AS makes the player and nothing else. Anyone offering Crivid IPTV with channels or a subscription is not us."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Can I use more than one playlist?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, with Pro. Combine several sources into one guide, or keep them apart — hiding and organising are remembered per playlist."
+            "text": "Yes, with Pro. Combine several sources into one guide, or keep them apart. Hiding and organising are remembered per playlist."
           }
         },
         {
@@ -147,7 +155,7 @@
           "name": "My guide will not load. What now?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Usually the guide feed is very large. Crivid handles feeds well past 100 MB, so if the guide is empty, check that the EPG URL from your provider is reachable and returns XMLTV. If it still fails, come to Discord and we will look at it with you."
+            "text": "Some providers send a very large guide. Make sure the app is up to date, since recent versions handle much larger guides. If yours stays empty, check the guide link your provider gave you, or ask us on Discord and we will look at it with you."
           }
         }
       ]
@@ -160,32 +168,33 @@
 <div class="page">
 
 <header class="top"><div class="wrap">
-  <a href="/" aria-label="Crivid Player"><img src="img/wordmark.png" alt="Crivid Player"></a>
+  <a href="/" aria-label="Crivid IPTV Player"><img src="img/wordmark.png" alt="Crivid IPTV Player" width="229" height="68"></a>
   <nav class="nav">
     <a class="nav-link" href="#why">Why switch</a>
     <a class="nav-link" href="/pricing">Pricing</a>
-    <a class="nav-link" href="https://discord.gg/jTUG8FNECK">Discord</a>
+    <a class="nav-link" href="/roadmap">What&#39;s new</a>
+    <a class="nav-link" href="/help">Help</a>
   </nav>
 </div></header>
 
+<main>
+
 <section class="hero"><div class="wrap">
-  <h1>Everything you already have.
-    <span class="second">Your channels and your own library, in one guide.</span></h1>
-  <p class="lede">The IPTV subscription you already have, plus your Jellyfin, Emby or Plex library — in one player, on your phone, your tablet and your TV.</p>
-  <p class="define">Crivid IPTV Player is a bring-your-own-subscription IPTV player from Crivid AS for Android, Android TV, iOS, Apple TV and macOS. It ships with no channels or content of its own.</p>
+  <h1>The IPTV player for the service you already pay for.
+    <span class="second">With your Jellyfin, Emby or Plex library in the same guide.</span></h1>
+  <p class="lede">No channels included. Bring your provider and your own library, and watch on your phone, your tablet and your TV.</p>
+  <p class="define">Crivid IPTV Player is made by Crivid AS for Android, Android TV, Google TV, iPhone, iPad, Apple TV and Mac. It ships with no channels or content of its own.</p>
 
   <div class="cta">
     <a class="store" href="https://play.google.com/store/apps/details?id=com.crivid.iptvplayer">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2.5v19a1 1 0 0 0 1.5.87l15-9.5a1 1 0 0 0 0-1.74l-15-9.5A1 1 0 0 0 3 2.5z"/></svg>
-      <span><b>Google Play</b><small>DOWNLOAD NOW</small></span></a>
+      <span><b>Google Play</b><small>Android, Android TV, Google TV</small></span></a>
     <a class="store" href="https://apps.apple.com/app/id6783083716">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c.4-2 1.9-3.6 3.9-4-.1 2-1.6 3.7-3.9 4z"/><path d="M18.6 16.6c-.6 1.4-1.4 2.7-2.5 3.9-.8.8-1.5 1.2-2.3 1.2-.7 0-1.2-.2-2.1-.6-.9-.4-1.4-.6-2-.6s-1.2.2-2 .6c-.8.4-1.4.6-2 .6-.8 0-1.6-.5-2.4-1.4C1.6 18.2.7 15.4.9 12.8c.2-2.4 1.6-4.1 3.7-4.1.9 0 1.6.3 2.4.6.6.3 1 .4 1.3.4.3 0 .7-.1 1.4-.5.9-.4 1.6-.6 2.3-.5 1.7.1 3 .8 3.8 2.1-1.5 1-2.3 2.3-2.2 4 .1 1.4.7 2.5 1.8 3.3z"/></svg>
-      <span><b>App Store</b><small>DOWNLOAD NOW</small></span></a>
-    <a class="store discord" href="https://discord.gg/jTUG8FNECK" target="_blank" rel="noopener">
-      <svg viewBox="0 0 127.14 96.36" aria-hidden="true"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
-      <span><b>Discord</b><small>JOIN THE COMMUNITY</small></span></a>
+      <span><b>App Store</b><small>iPhone, iPad, Apple TV, Mac</small></span></a>
   </div>
-  <p class="fineprint">One purchase. No subscription. No account. Seven days of Pro included — no card, nothing to cancel.</p>
+  <p class="fineprint"><b>Free to download.</b> Every Pro feature free for 7 days, no card needed. Then keep Pro for one payment of $17.99, shown in your own currency, or stay on the free version.</p>
+  <p class="community">Questions first? <a href="https://discord.gg/jTUG8FNECK" target="_blank" rel="noopener">Ask us on Discord</a>.</p>
 
   <!-- Plattformraden er en PÅSTAND og må måles mot butikkene før hver publisering.
        Målt 2026-08-19 (kveld): Android, Android TV, iPhone, iPad og Mac serveres.
@@ -197,19 +206,21 @@
   <div class="platforms">
     <span class="chip live">Android</span>
     <span class="chip live">Android TV</span>
+    <span class="chip live">Google TV</span>
     <span class="chip live">iPhone</span>
     <span class="chip live">iPad</span>
     <span class="chip live">Mac</span>
     <span class="chip live">Apple TV</span>
-    <span class="chip soon">Windows — in progress</span>
+    <span class="chip soon">Fire TV, coming to Amazon</span>
+    <span class="chip soon">Windows, in progress</span>
   </div>
 
   <div class="slider">
     <div class="stage">
-    <div class="glow" aria-hidden="true"><img src="img/shots/shot_guide-r2.webp" alt="" class="on" fetchpriority="high" width="1600" height="900"><img src="img/shots/shot_multiview-r2.webp" alt="" width="1600" height="900"><img src="img/shots/shot_library-r2.webp" alt="" width="1600" height="900"><img src="img/shots/shot_live-r2.webp" alt="" width="1600" height="900"><img src="img/shots/shot_history.webp" alt="" width="1600" height="900"><img src="img/shots/shot_themes-r2.webp" alt="" width="1600" height="900"></div>
-    <div class="frame"><img src="img/shots/shot_guide-r2.webp" fetchpriority="high" alt="A guide built to be read. Now and next on every channel, with the live line marking where you are." class="on" width="1600" height="900"><img src="img/shots/shot_multiview-r2.webp" alt="Four streams, one screen. Multi-View runs four live channels at once." width="1600" height="900"><img src="img/shots/shot_library-r2.webp" alt="Your library on the big screen, with posters and ratings at a glance." width="1600" height="900"><img src="img/shots/shot_live-r2.webp" alt="Live TV full screen, with the channel and what is coming up next." width="1600" height="900"><img src="img/shots/shot_history.webp" alt="Watch history. Everything you watched, ready to pick up again." width="1600" height="900"><img src="img/shots/shot_themes-r2.webp" alt="Seven themes, plus clock format and guide text size, so the app reads the way you want it." width="1600" height="900"></div>
+    <div class="glow" aria-hidden="true"><img src="img/shots/shot_guide-r2.webp" alt="" class="on" fetchpriority="high" width="1600" height="900"><img data-src="img/shots/shot_multiview-r2.webp" alt="" width="1600" height="900"><img data-src="img/shots/shot_library-r2.webp" alt="" width="1600" height="900"><img data-src="img/shots/shot_live-r2.webp" alt="" width="1600" height="900"><img data-src="img/shots/shot_history.webp" alt="" width="1600" height="900"><img data-src="img/shots/shot_themes-r2.webp" alt="" width="1600" height="900"></div>
+    <div class="frame"><img src="img/shots/shot_guide-r2.webp" fetchpriority="high" alt="A guide built to be read. Now and next on every channel, with the live line marking where you are." class="on" width="1600" height="900"><img data-src="img/shots/shot_multiview-r2.webp" alt="Four streams, one screen. Multi-View runs four live channels at once." width="1600" height="900"><img data-src="img/shots/shot_library-r2.webp" alt="Your library on the big screen, with posters and ratings at a glance." width="1600" height="900"><img data-src="img/shots/shot_live-r2.webp" alt="Live TV full screen, with the channel and what is coming up next." width="1600" height="900"><img data-src="img/shots/shot_history.webp" alt="Watch history. Everything you watched, ready to pick up again." width="1600" height="900"><img data-src="img/shots/shot_themes-r2.webp" alt="Themes, clock format and guide text size, so the app reads the way you want it." width="1600" height="900"></div>
   </div>
-  <div class="caps"><p class="cap on">A guide built to be read. Now and next on every channel, with the live line marking where you are.</p><p class="cap">Four streams, one screen. Multi-View runs four live channels at once.</p><p class="cap">Your library on the big screen, with posters and ratings at a glance.</p><p class="cap">Live TV full screen, with the channel and what is coming up next.</p><p class="cap">Watch history. Everything you watched, ready to pick up again.</p><p class="cap">Seven themes, plus clock format and guide text size, so the app reads the way you want it.</p></div>
+  <div class="caps"><p class="cap on">A guide built to be read. Now and next on every channel, with the live line marking where you are.</p><p class="cap">Four streams, one screen. Multi-View runs four live channels at once.</p><p class="cap">Your library on the big screen, with posters and ratings at a glance.</p><p class="cap">Live TV full screen, with the channel and what is coming up next.</p><p class="cap">Watch history. Everything you watched, ready to pick up again.</p><p class="cap">Themes, clock format and guide text size, so the app reads the way you want it.</p></div>
     <div class="controls">
       <button class="arrow prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>
       <div class="dots"><button type="button" aria-label="Screenshot 1" aria-current="true"></button><button type="button" aria-label="Screenshot 2"></button><button type="button" aria-label="Screenshot 3"></button><button type="button" aria-label="Screenshot 4"></button><button type="button" aria-label="Screenshot 5"></button><button type="button" aria-label="Screenshot 6"></button></div>
@@ -222,7 +233,7 @@
 <section class="stats-sec"><div class="wrap">
   <div class="eyebrow">Where it stands</div>
   <div class="stats">
-    <div class="stat"><span class="n" id="stat-users">1,154</span><div class="l">Active users</div><div class="s">Last 28 days</div></div>
+    <div class="stat"><span class="n" id="stat-users">1,203</span><div class="l">Active users</div><div class="s">Last 28 days</div></div>
     <div class="stat"><span class="n">6</span><div class="l">Devices it runs on</div><div class="s">Phone, tablet, TV, Mac</div></div>
     <div class="stat"><span class="n"><a href="/roadmap">What&#39;s next &rarr;</a></span><div class="l">The roadmap</div><div class="s">Updated as things ship</div></div>
   </div>
@@ -246,7 +257,7 @@
     </div>
     <div class="lrow">
       <div class="them">Your channels here. Your Plex library in a different app.</div>
-      <div class="us"><b>One guide.</b> IPTV, Jellyfin, Emby, Plex and a network tuner, together.</div>
+      <div class="us"><b>One guide.</b> IPTV, Jellyfin, Emby, Plex and a network tuner, together, with Pro.</div>
     </div>
     <div class="lrow">
       <div class="them">Set the whole thing up on the TV, with a remote.</div>
@@ -262,7 +273,7 @@
   <div class="steps">
     <div class="step">
       <div class="n">01</div><h3>Add your source</h3>
-      <p>Paste an M3U link or enter your Xtream login. That is the whole setup — no email, no password to invent.</p>
+      <p>Paste an M3U link or enter your Xtream login. That is the whole setup. No email, no password to invent.</p>
     </div>
     <div class="step">
       <div class="n">02</div><h3>The guide builds itself</h3>
@@ -276,17 +287,18 @@
 </div></section>
 
 <section id="features"><div class="wrap">
-  <div class="eyebrow">The part nobody else does</div>
-  <h2>Your own library, in the same guide.</h2>
-  <p class="lede">Connect Jellyfin, Emby or Plex and your films and series sit beside your channels — same interface, same remote. Add an HDHomeRun and its channels join the guide with everything else. Play a file off a USB stick and it lands in the same library.</p>
+  <div class="eyebrow">Your own library</div>
+  <h2>Your films and series, in the same guide.<span class="pro-tag">PRO</span></h2>
+  <p class="lede">Connect Jellyfin, Emby or Plex and your films and series sit beside your channels, with the same interface and the same remote. Add an HDHomeRun and its channels join the guide with everything else. Play a file off a USB stick and it lands in the same library.</p>
   <p class="punch">Not four apps. One.</p>
+  <p class="pro-note">Libraries, films and series, tuners and local files are part of Pro. Live TV from one source is free.</p>
 
   <div class="more">
     <div><h3>Parental controls</h3><p>PIN-locked groups and hidden channels, enforced everywhere in the app.</p></div>
     <div><h3>Catch-up<span class="pro-tag">PRO</span></h3><p>Replay past broadcasts where your provider supports it.</p></div>
     <div><h3>Multiple playlists<span class="pro-tag">PRO</span></h3><p>Combine several sources into one guide, or keep them apart.</p></div>
     <div><h3>Picture-in-picture<span class="pro-tag">PRO</span></h3><p>Keep watching in a corner while you do something else.</p></div>
-    <div><h3>Seven themes<span class="pro-tag">PRO</span></h3><p>Midnight is free. Six more change the whole app, guide included.</p></div>
+    <div><h3>Themes<span class="pro-tag">PRO</span></h3><p>Midnight is free. The others change the whole app, guide included.</p></div>
     <div><h3>Multi-View<span class="pro-tag">PRO</span></h3><p>Four streams on screen at once, with the sound on whichever one matters.</p></div>
   </div>
 </div></section>
@@ -295,13 +307,13 @@
   <div class="eyebrow">Pricing</div>
   <h2>One purchase. Not a subscription.</h2>
   <div class="panel">
-    <div class="price">Pay once</div>
+    <div class="price">$17.99, once</div>
     <ul class="plist">
-      <li>Seven days of Pro included free — no card details, nothing to cancel.</li>
+      <li>Free to download. Seven days of Pro included, with no card details and nothing to cancel.</li>
       <li>After that, Pro is a single payment and it stays yours.</li>
-      <li>The store shows the price in your own currency.</li>
+      <li>That is the US price. The store shows yours in your own currency, in Norway kr 219.</li>
       <li>No monthly fee, and no account to keep alive.</li>
-      <li>Uninstall it, reinstall it in two years — it is still yours.</li>
+      <li>Uninstall it, reinstall it in two years. It is still yours.</li>
     </ul>
     <p style="margin-top:26px"><a class="nav-link" href="/pricing">What Pro unlocks →</a></p>
   </div>
@@ -316,7 +328,7 @@
        (source, via, reason, action, found, platform). Ingen URL, vert, brukernavn
        eller spillelistedata forlater enheten. Derfor er formuleringen «aldri sendt
        til oss» presis — mens «vi har ingen server» ville vært usant. -->
-  <p style="margin-top:22px;font-size:.88rem;color:var(--muted);max-width:60ch">The app counts anonymous usage so we know which features are worth building, and checks your purchase with the store. Neither of those includes your sources. <a href="https://crivid.com/crivid-iptv-privacy">Privacy policy</a>.</p>
+  <p style="margin-top:22px;font-size:.88rem;color:var(--muted);max-width:60ch">The app counts anonymous usage so we know which features are worth building, and checks your purchase with the store. Neither of those includes your sources. <a href="/privacy">Privacy policy</a>.</p>
 </div></section>
 
 <section><div class="wrap">
@@ -327,21 +339,27 @@
     <details><summary>Does Crivid include any channels?</summary><p>No. Crivid is a player and nothing else. It does not include, host, provide or resell any channels, films or streams. You add your own source and you are responsible for holding the rights or subscription to access it.</p></details>
     <details><summary>Is Pro a subscription?</summary><p>No. Pro is a one-time purchase. Seven days are included free with no card details, and after that a single payment unlocks it for good.</p></details>
     <details><summary>Do I need an account?</summary><p>No. There is no sign-up, no email and no password. Everything lives on your device.</p></details>
-    <details><summary>Can I use more than one playlist?</summary><p>Yes, with Pro. Combine several sources into one guide, or keep them apart — hiding and organising are remembered per playlist.</p></details>
-    <details><summary>My guide will not load. What now?</summary><p>Usually the guide feed is very large. Crivid handles feeds well past 100 MB, so if the guide is empty, check that the EPG URL from your provider is reachable and returns XMLTV. If it still fails, come to <a href="https://discord.gg/jTUG8FNECK">Discord</a> and we will look at it with you.</p></details>
+    <details><summary>Can I use more than one playlist?</summary><p>Yes, with Pro. Combine several sources into one guide, or keep them apart. Hiding and organising are remembered per playlist.</p></details>
+    <details><summary>My guide will not load. What now?</summary><p>Some providers send a very large guide. Make sure the app is up to date, since recent versions handle much larger guides. If yours stays empty, check the guide link your provider gave you, or ask us on <a href="https://discord.gg/jTUG8FNECK">Discord</a> and we will look at it with you. There is more in <a href="/help#guide">Help</a>.</p></details>
+    <details><summary>Which devices does it run on?</summary><p>Android phones and tablets, Android TV and Google TV from Google Play. iPhone, iPad, Apple TV and Mac from the App Store. Fire TV is coming to the Amazon Appstore, and Windows is in progress.</p></details>
+    <details><summary>Can I cast to my TV?</summary><p>Not with Chromecast, and AirPlay carries sound only for now. Install Crivid on the TV itself instead: it is the same app on every screen. See what is <a href="/roadmap">planned and not planned</a>.</p></details>
+    <details><summary>Does Crivid sell channels or IPTV subscriptions?</summary><p>Never. Crivid AS makes the player and nothing else. Anyone offering Crivid IPTV with channels or a subscription is not us.</p></details>
   </div>
 </div></section>
+
+</main>
 
 <footer><div class="wrap">
   <nav class="foot-nav">
     <a href="/pricing">Pricing</a>
+    <a href="/roadmap">What&#39;s new</a>
+    <a href="/help">Help</a>
     <a href="/terms">Terms</a>
     <a href="/refunds">Refunds</a>
-    <a href="https://crivid.com/crivid-iptv-privacy">Privacy</a>
+    <a href="/privacy">Privacy</a>
     <a href="https://discord.gg/jTUG8FNECK">Discord</a>
-    <a href="mailto:hellothere@crivid.com">Support</a>
   </nav>
-  <p class="legal"><strong>Crivid Player is a media player.</strong> It does not include, host, provide, resell or endorse any television channels, films, or other content, and it is not affiliated with any content provider. To watch anything you add your own source — an M3U playlist, an Xtream login, a network tuner, or your own media server. Pro unlocks features in the app; it does not include or provide access to any content. Users are responsible for the sources they add and for holding the necessary rights or subscriptions to access them.</p>
+  <p class="legal"><strong>Crivid IPTV Player is a media player.</strong> It does not include, host, provide, resell or endorse any television channels, films, or other content, and it is not affiliated with any content provider. To watch anything you add your own source: an M3U playlist, an Xtream login, a network tuner, or your own media server. Pro unlocks features in the app; it does not include or provide access to any content. Users are responsible for the sources they add and for holding the necessary rights or subscriptions to access them.</p>
   <p class="legal" style="margin-top:18px">© Crivid AS, Norway.</p>
 </div></footer>
 
@@ -354,10 +372,20 @@
   // styrt hver for seg, ville de sklidd fra hverandre ved raske klikk.
   var glow=document.querySelectorAll('.glow img'), caps=document.querySelectorAll('.cap');
   var i=0,timer=null,still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Bare foerste bilde lastes med siden. Resten har data-src og hentes naar
+  // siden er ferdig, saa telefonen ikke laster seks bilder foer foerste vises
+  // (gjennomgang 26.09: 474 KB paa en gang). Klikkes det foer det, hentes
+  // bildet der og da.
+  function load(el){ var d=el.getAttribute('data-src'); if(d){ el.src=d; el.removeAttribute('data-src'); } }
+  function loadAll(){ imgs.forEach(load); glow.forEach(load); }
+  if(document.readyState==='complete') loadAll(); else window.addEventListener('load',loadAll);
   function go(n){ i=(n+imgs.length)%imgs.length;
+    load(imgs[i]); load(glow[i]);
     imgs.forEach(function(el,k){el.classList.toggle('on',k===i);});
     glow.forEach(function(el,k){el.classList.toggle('on',k===i);});
-    caps.forEach(function(el,k){el.classList.toggle('on',k===i);});
+    // Skjermlesere skal hoere bildet og teksten som vises, ikke alle seks.
+    caps.forEach(function(el,k){el.classList.toggle('on',k===i); el.setAttribute('aria-hidden',k===i?'false':'true');});
+    imgs.forEach(function(el,k){el.setAttribute('aria-hidden',k===i?'false':'true');});
     dots.forEach(function(el,k){ if(k===i) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current'); }); }
   function start(){ if(still) return; stop(); timer=setInterval(function(){go(i+1);},4500); }
   function stop(){ if(timer) clearInterval(timer); timer=null; }
@@ -367,6 +395,7 @@
   var s=document.querySelector('.slider');
   s.addEventListener('mouseenter',stop); s.addEventListener('mouseleave',start);
   s.addEventListener('focusin',stop); s.addEventListener('focusout',start);
+  go(0);
   start();
 })();
 </script>
@@ -375,7 +404,7 @@
 /* Tallet i stripa. stats.json skrives av en jobb paa MothBot en gang i doegnet.
    Feiler hentingen, staar tallet i HTML-en igjen — en side som viser et litt
    gammelt tall er bedre enn en som viser en tom rute. */
-fetch('/stats.json?t=' + Date.now()).then(function(r){ return r.ok ? r.json() : null; })
+fetch('/stats.json').then(function(r){ return r.ok ? r.json() : null; })
   .then(function(d){
     if (!d || typeof d.active_users !== 'number') return;
     var el = document.getElementById('stat-users');

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help | Crivid IPTV Player</title>
+<meta name="description" content="How to add an M3U playlist or Xtream Codes login, fix a TV guide that will not load, connect Jellyfin, Emby or Plex, and restore Pro in Crivid IPTV Player.">
+<link rel="canonical" href="https://crividplayer.com/help">
+<link rel="icon" href="/img/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/img/icon-180.png">
+<meta name="theme-color" content="#060B16">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://crividplayer.com/help">
+<meta property="og:site_name" content="Crivid IPTV Player">
+<meta property="og:title" content="Help | Crivid IPTV Player">
+<meta property="og:description" content="How to add an M3U playlist or Xtream Codes login, fix a TV guide that will not load, connect Jellyfin, Emby or Plex, and restore Pro in Crivid IPTV Player.">
+<meta property="og:image" content="https://crividplayer.com/img/shots/shot_multiview-r2.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/doc.css?v=202609260100">
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brandmark" href="/" aria-label="Crivid IPTV Player home"><img src="/img/wordmark.png" alt="Crivid" width="229" height="68"><span class="brand-sub">IPTV Player</span><span class="caret" aria-hidden="true"></span></a><span class="spacer"></span>
+  <a class="nav-link" href="/#features">Features</a>
+  <a class="nav-link" href="/pricing">Pricing</a>
+  <a class="nav-link" href="/roadmap">What&#39;s new</a>
+  <a class="nav-link" href="/help" aria-current="page">Help</a>
+</div></nav>
+
+<main><div class="wrap"><div class="doc">
+  <h1>Help</h1>
+  <p class="meta">Setting up Crivid IPTV Player, and what to do when something is off.</p>
+
+  <ul class="help-toc">
+    <li><a href="#xtream">Xtream Codes login</a></li>
+    <li><a href="#m3u">M3U playlist</a></li>
+    <li><a href="#guide">Guide will not load</a></li>
+    <li><a href="#library">Jellyfin, Emby, Plex</a></li>
+    <li><a href="#tuner">HDHomeRun</a></li>
+    <li><a href="#pro">Pro and purchases</a></li>
+    <li><a href="#buffering">Buffering</a></li>
+    <li><a href="#devices">Devices</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="callout">
+    <p><strong>Crivid includes no channels.</strong> You need a source of your own: a login or playlist from your
+    IPTV provider, a media server, or a tuner. Crivid AS never sells channels or subscriptions, and anyone offering
+    Crivid IPTV with channels is not us.</p>
+  </div>
+
+  <h2 id="xtream">Add an Xtream Codes login</h2>
+  <p>Most providers give you a server address, a username and a password. That is an Xtream Codes login.</p>
+  <ol>
+    <li>Open <strong>Settings</strong>, then <strong>Playlists</strong>.</li>
+    <li>Under <strong>Add a source</strong>, choose <strong>Xtream Codes login</strong>.</li>
+    <li>Type the server, username and password exactly as your provider sent them, including <code>http://</code>
+    and any port number.</li>
+  </ol>
+  <p>Channels, films, series and the TV guide come in on their own. On a TV it is easiest to set this up on your
+  phone first, since typing with a remote is slow.</p>
+
+  <h2 id="m3u">Add an M3U playlist</h2>
+  <p>Some providers send a single link instead, often ending in <code>.m3u</code> or containing
+  <code>get.php</code>.</p>
+  <ol>
+    <li>Open <strong>Settings</strong>, then <strong>Playlists</strong>.</li>
+    <li>Under <strong>Add a source</strong>, choose <strong>M3U playlist</strong> and paste the link.</li>
+    <li>If your provider gave you a separate guide link, add it as <strong>EPG URL (optional)</strong>.</li>
+  </ol>
+  <p>With Pro you can add several playlists and combine them into one guide, or keep them apart.</p>
+
+  <h2 id="guide">The TV guide will not load</h2>
+  <p>The guide is a separate file from your provider, and some providers send a very large one. Recent versions
+  of Crivid handle much larger guides than before, so start by updating the app from the store.</p>
+  <ol>
+    <li>Give it a minute on first start. A large guide takes a while to download and sort.</li>
+    <li>Open <strong>Settings</strong>, then <strong>Playlists</strong>, and choose <strong>Refresh TV guide</strong>.
+    It updates the listings without touching your channels.</li>
+    <li>If you use an M3U playlist, check that the <strong>EPG URL</strong> is the one your provider gave you.</li>
+    <li>Still empty? Tell us on <a href="https://discord.gg/jTUG8FNECK">Discord</a> which provider and which
+    device, and we will look at it with you.</li>
+  </ol>
+
+  <h2 id="library">Connect Jellyfin, Emby or Plex</h2>
+  <p>Your own films and series can sit in the same app as your channels. This is part of Pro.</p>
+  <ol>
+    <li>Open <strong>My Media</strong>.</li>
+    <li>Choose <strong>Connect Jellyfin or Emby</strong> and enter your server address and login, or choose
+    <strong>Connect Plex</strong> and sign in at <strong>plex.tv/link</strong> with the code on screen. Plex needs
+    no password in the app.</li>
+  </ol>
+  <p>Each library gets its own row, and the posters, ratings and progress come from your server.</p>
+
+  <h2 id="tuner">Add an HDHomeRun tuner</h2>
+  <p>Open <strong>Devices</strong>. Crivid looks for HDHomeRun tuners on your home network, and their channels join
+  the guide with everything else. The tuner and the device running Crivid need to be on the same network. This is
+  part of Pro.</p>
+
+  <h2 id="pro">Pro and purchases</h2>
+  <dl>
+    <dt>Is there a free trial?</dt>
+    <dd>Yes. Every Pro feature is free for seven days from the first time you open the app, with no card details.
+    When it ends, the app goes back to the free version and your settings stay.</dd>
+    <dt>I bought Pro, but it is gone</dt>
+    <dd>Open <strong>Settings</strong>, then <strong>Account &amp; Pro</strong>, and choose
+    <strong>Restore purchase</strong>. Use the same Google or Apple account you bought it with.</dd>
+    <dt>Does Pro follow me between Android and Apple?</dt>
+    <dd>No. Google Play and the App Store cannot see each other&#39;s purchases, so Pro bought on Android does not
+    unlock an iPhone, iPad or Apple TV, or the other way round.</dd>
+    <dt>What is the Support ID?</dt>
+    <dd>You will find it in <strong>Settings</strong>. If you write to us about a purchase, include it. It lets us
+    find your install without guessing.</dd>
+    <dt>Refunds</dt>
+    <dd>See the <a href="/refunds">Refund Policy</a>.</dd>
+  </dl>
+
+  <h2 id="buffering">The picture freezes or buffers</h2>
+  <p>A picture that freezes is usually the channel or the provider, not the app. Watch two different channels for
+  a minute each. If one freezes and the other does not, the problem is at your provider.</p>
+  <p><strong>Settings</strong>, then <strong>Diagnostics</strong>, can help. <strong>Run the checks</strong> tests
+  your internet, the clock, your provider and your subscription, and the section below it counts how often the
+  picture has frozen on each live channel.</p>
+  <p>If you use a VPN, try once without it. Some providers block VPN addresses.</p>
+
+  <h2 id="devices">Which devices does it run on?</h2>
+  <p>Android phones and tablets, Android TV and Google TV from
+  <a href="https://play.google.com/store/apps/details?id=com.crivid.iptvplayer">Google Play</a>. iPhone, iPad,
+  Apple TV and Mac from the <a href="https://apps.apple.com/app/id6783083716">App Store</a>. Fire TV is coming to
+  the Amazon Appstore, and Windows is in progress. See the <a href="/roadmap">roadmap</a> for the latest.</p>
+  <p>Chromecast is not supported, and AirPlay carries sound only for now. Install Crivid on the TV itself instead.</p>
+
+  <h2 id="contact">Contact</h2>
+  <p>The quickest answer is on <a href="https://discord.gg/jTUG8FNECK">Discord</a>. You can also email
+  <a href="mailto:hellothere@crivid.com">hellothere@crivid.com</a>. We aim to reply within two business days.
+  Crivid AS is a small company in Norway.</p>
+</div></div></main>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <a class="brandmark" href="/" aria-label="Crivid IPTV Player home"><img src="/img/wordmark.png" alt="Crivid" width="229" height="68"><span class="brand-sub">IPTV Player</span><span class="caret" aria-hidden="true"></span></a><span class="spacer"></span>
+    <a href="/pricing">Pricing</a><a href="/roadmap">What&#39;s new</a><a href="/help">Help</a><a href="/terms">Terms</a><a href="/refunds">Refunds</a>
+    <a href="/privacy">Privacy</a>
+    <a href="https://discord.gg/jTUG8FNECK" target="_blank" rel="noopener">Discord</a>
+  </div>
+  <p class="disclaimer">Crivid IPTV Player is a media player. It does not include, host, provide, resell or endorse
+  any television channels, films, or other content, and it is not affiliated with any content provider. Users are
+  responsible for the sources they add and for holding the necessary rights or subscriptions to access them.
+  &copy; Crivid AS, Norway.</p>
+</div></footer>
+</body>
+</html>

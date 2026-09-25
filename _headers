@@ -22,3 +22,13 @@
 # dag, men lang nok til at gjentatte besøk ikke laster 792 KB på nytt.
 /img/shots/*
   Cache-Control: public, max-age=14400
+
+# CSS og fonter lenkes alltid med ?v=-stempel, saa en ny versjon er en ny
+# adresse. Da kan de hurtiglagres et aar (gjennomgang 26.09: fire timer ga en
+# ny sjekk ved hvert gjensyn). ⚠️ Lenk ALDRI til disse uten ?v=.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/page.css
+  Cache-Control: public, max-age=31536000, immutable
+/doc.css
+  Cache-Control: public, max-age=31536000, immutable
