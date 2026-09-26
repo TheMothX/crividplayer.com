@@ -32,3 +32,8 @@
   Cache-Control: public, max-age=31536000, immutable
 /doc.css
   Cache-Control: public, max-age=31536000, immutable
+
+# Appen spoer denne ved hver oppstart (Firestick-utgaven). En ny utgivelse
+# maa naa kundene samme dag, ikke etter fire timer.
+/fire/version.json
+  Cache-Control: public, max-age=300

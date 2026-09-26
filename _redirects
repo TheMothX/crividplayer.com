@@ -7,3 +7,8 @@
 # leverte en lagret kopi videre; videresendingen tar over uansett.
 /README.md  /  301
 /.gitignore  /  301
+
+# Firestick-utgaven (26.09): kunden skriver crividplayer.com/fire i Downloader
+# og faar APK-en rett. Pek om hit OG i fire/version.json ved hver utgivelse.
+/fire   https://dl.crividplayer.com/fire/crivid-2.0.0.apk  302
+/fire/  https://dl.crividplayer.com/fire/crivid-2.0.0.apk  302
