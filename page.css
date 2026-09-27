@@ -109,11 +109,11 @@ p{color:var(--ink-2);max-width:62ch}
    Permanent Marker ligger på vårt eget domene (Apache 2.0), så ingenting
    hentes fra Google. Filteret #spray i index.html gir ujevne kanter, og
    skyggene gir den tynne dusjen rundt, slik sprayboks gjør. */
-.chip.soon{position:relative;overflow:visible;padding-inline:1.5rem;margin-inline:.35rem}
+.chip.soon{position:relative;overflow:visible;margin-right:1.6rem}
 .chip.soon::after{
-  content:"SOON";position:absolute;left:50%;top:50%;
-  transform:translate(-50%,-50%) rotate(-9deg);
-  font-family:"Permanent Marker","Comic Sans MS",cursive;font-size:1.9rem;line-height:1;
+  content:"SOON";position:absolute;right:-1.7rem;top:-.95rem;
+  transform:rotate(-12deg);
+  font-family:"Permanent Marker","Comic Sans MS",cursive;font-size:1.3rem;line-height:1;
   letter-spacing:.1em;color:#ff2a2a;white-space:nowrap;pointer-events:none;
   text-shadow:0 0 1px #ff2a2a,0 0 5px rgba(255,42,42,.55),0 0 14px rgba(255,42,42,.28);
   filter:url(#spray);opacity:.93;
