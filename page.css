@@ -220,6 +220,18 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:36px;back
 .store b{display:block;font-size:.95rem;font-variation-settings:'opsz' 14,'wght' 620;letter-spacing:-.01em}
 .store small{display:block;font-size:.72rem;color:var(--live);letter-spacing:.06em}
 
+/* ── Offisielle butikkmerker ──────────────────────────────────────────────
+   Googles og Apples egne merker, uendret. Reglene (lest 27.09): minst 40 px
+   høye på skjerm, luft rundt på minst en fjerdedel av høyden (12 px ved 48),
+   og Google-merket minst like stort som de andre. Begge er 48 px høye her. */
+.badges{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.badge{display:flex;flex-direction:column;align-items:center;gap:8px}
+.badge a{display:block;border-radius:8px;transition:transform .18s}
+.badge a:hover{transform:translateY(-1px)}
+.badge a:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+.badge img{display:block;height:48px;width:auto}
+.badge small{font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+
 /* ── Karusellen ───────────────────────────────────────────────────────────
    Uendret oppførsel fra den gamle sida, og av god grunn: hvert panel bærer
    sin egen store overskrift, så en ekte kryssfade viser TO overskrifter oppå
