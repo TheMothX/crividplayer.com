@@ -1,3 +1,4 @@
+@font-face{font-family:"Permanent Marker";src:url("fonts/permanent-marker.woff2") format("woff2");font-display:swap}
 /* crividplayer.com — 2026-08-17
    Bygget om etter gjennomgang av konkurransebildet. Strukturen er lånt fra en
    konkurrent som selger bedre enn oss; påstandene er våre egne og etterprøvd.
@@ -104,6 +105,19 @@ p{color:var(--ink-2);max-width:62ch}
 }
 .chip.live{border-color:var(--live-line);color:var(--live)}
 .chip.soon{color:var(--muted);border-style:dashed}
+/* «SOON» sprayet på skrå over det som ikke er ute ennå (Christian 27.09).
+   Permanent Marker ligger på vårt eget domene (Apache 2.0), så ingenting
+   hentes fra Google. Filteret #spray i index.html gir ujevne kanter, og
+   skyggene gir den tynne dusjen rundt, slik sprayboks gjør. */
+.chip.soon{position:relative;overflow:visible;margin-right:1.6rem}
+.chip.soon::after{
+  content:"SOON";position:absolute;right:-1.7rem;top:-.95rem;
+  transform:rotate(-12deg);
+  font-family:"Permanent Marker","Comic Sans MS",cursive;font-size:1.3rem;line-height:1;
+  letter-spacing:.1em;color:#ff2a2a;white-space:nowrap;pointer-events:none;
+  text-shadow:0 0 1px #ff2a2a,0 0 5px rgba(255,42,42,.55),0 0 14px rgba(255,42,42,.28);
+  filter:url(#spray);opacity:.93;
+}
 
 /* ── Butikkpanelene bærer argumentet ──────────────────────────────────── */
 figure{margin:0}
