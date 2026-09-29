@@ -118,7 +118,7 @@ footer a:hover{color:var(--paper)}
  «Features». Under 560 px vises bare ordmerket. */
 .brand-sub{white-space:nowrap}
 @media (max-width:560px){
- nav .brand-sub,nav .caret{display:none}
+ nav .brand-sub{display:none}
  nav .wrap{gap:.9rem}
  .nav-link{font-size:.88rem}
 }
